@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/main"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/gradient_background"
+	tools:context=".MainActivity">
+
+	<LinearLayout
+		android:id="@+id/linearLayout"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:layout_marginStart="20dp"
+		android:layout_marginTop="20dp"
+		android:layout_marginEnd="20dp"
+		android:layout_marginBottom="20dp"
+		android:orientation="vertical"
+		android:padding="0dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.0"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintVertical_bias="0.0">
+
+		<!-- Header com gradiente -->
+		<com.google.android.material.card.MaterialCardView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="24dp"
+			app:cardCornerRadius="20dp"
+			app:cardElevation="8dp"
+			app:cardBackgroundColor="#2E86AB"/>
+
+		<!-- Cards de indicadores com nova aparência -->
+		<com.google.android.material.card.MaterialCardView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="20dp"
+			app:cardCornerRadius="16dp"
+			app:cardElevation="6dp"
+			app:cardBackgroundColor="#FFFFFF"
+			app:strokeColor="#E0E0E0"
+			app:strokeWidth="1dp">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:padding="28dp"
+				android:gravity="center"
+				android:background="@drawable/temperature_gradient">
+
+				<TextView
+					android:id="@+id/txtTituloTemperatura"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="TEMPERATURA ATUAL"
+					android:textStyle="bold"
+					android:textAllCaps="true"
+					android:textSize="14sp"
+					android:textColor="#E74C3C"
+					android:layout_marginBottom="16dp"/>
+
+				<TextView
+					android:id="@+id/txtTemperaturaValor"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="25 °C"
+					android:textStyle="bold"
+					android:textSize="48sp"
+					android:textColor="#E74C3C"/>
+
+			</LinearLayout>
+		</com.google.android.material.card.MaterialCardView>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:gravity="center"
+			android:layout_marginBottom="28dp">
+
+			<com.google.android.material.card.MaterialCardView
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:layout_marginEnd="10dp"
+				app:cardCornerRadius="16dp"
+				app:cardElevation="6dp"
+				app:cardBackgroundColor="#FFFFFF"
+				app:strokeColor="#E0E0E0"
+				app:strokeWidth="1dp">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:padding="24dp"
+					android:gravity="center"
+					android:background="@drawable/humidity_air_gradient">
+
+					<TextView
+						android:id="@+id/txtTituloUmidadeAr"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="UMIDADE DO AR"
+						android:textStyle="bold"
+						android:textAllCaps="true"
+						android:textSize="12sp"
+						android:textColor="#3498DB"
+						android:layout_marginBottom="16dp"/>
+
+					<TextView
+						android:id="@+id/txtUmidadeArValor"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="40%"
+						android:textStyle="bold"
+						android:textSize="36sp"
+						android:textColor="#3498DB"/>
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<com.google.android.material.card.MaterialCardView
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:layout_marginStart="10dp"
+				app:cardCornerRadius="16dp"
+				app:cardElevation="6dp"
+				app:cardBackgroundColor="#FFFFFF"
+				app:strokeColor="#E0E0E0"
+				app:strokeWidth="1dp">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:padding="24dp"
+					android:gravity="center"
+					android:background="@drawable/humidity_soil_gradient">
+
+					<TextView
+						android:id="@+id/txtTituloUmidadeSolo"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="UMIDADE DO SOLO"
+						android:textStyle="bold"
+						android:textAllCaps="true"
+						android:textSize="12sp"
+						android:textColor="#27AE60"
+						android:layout_marginBottom="16dp"/>
+
+					<TextView
+						android:id="@+id/txtUmidadeSoloValor"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="20%"
+						android:textStyle="bold"
+						android:textSize="36sp"
+						android:textColor="#27AE60"/>
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+		</LinearLayout>
+
+		<!--layout da conexão com nova aparência -->
+		<com.google.android.material.card.MaterialCardView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="24dp"
+			app:cardCornerRadius="16dp"
+			app:cardElevation="6dp"
+			app:cardBackgroundColor="#FFFFFF"
+			app:strokeColor="#E0E0E0"
+			app:strokeWidth="1dp">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:padding="24dp">
+
+				<com.google.android.material.button.MaterialButton
+					android:id="@+id/btnBluetooth"
+					style="@style/AppButtonPrimary"
+					android:layout_width="match_parent"
+					android:layout_height="60dp"
+					android:text="CONECTAR DISPOSITIVOS"
+					app:icon="@drawable/ic_bluetooth"
+					app:iconGravity="textStart"
+					app:iconSize="25dp"
+					app:iconPadding="16dp" />
+
+				<TextView
+					android:id="@+id/textView2"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="Desconectado"
+					android:textColor="#E74C3C"
+					android:textSize="18sp"
+					android:gravity="center"
+					android:layout_marginTop="12dp" />
+			</LinearLayout>
+		</com.google.android.material.card.MaterialCardView>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="20dp"
+			android:orientation="vertical">
+
+			<com.google.android.material.button.MaterialButton
+				android:id="@+id/btnGerenciarHorario"
+				style="@style/AppButtonSecondary"
+				android:layout_width="match_parent"
+				android:layout_height="60dp"
+				android:text="GERENCIAR HORÁRIOS"
+				android:textStyle="bold"
+				android:textSize="18sp"
+				app:icon="@drawable/ic_relogio"
+				app:iconGravity="textStart"
+				app:iconSize="25dp"
+				app:iconPadding="16dp" />
+
+		</LinearLayout>
+
+	</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

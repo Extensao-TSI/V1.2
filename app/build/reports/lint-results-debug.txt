@@ -1,0 +1,472 @@
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:183: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+   val names = discoveredDevices.map { it.name ?: "(Sem nome)" + "\n" + it.address }
+                                       ~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:222: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+  private val uuid: UUID = device.uuids?.firstOrNull()?.uuid ?: UUID.fromString("00001101-0000-1000-8000-00805F9B34FB")
+                           ~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:229: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+     statusView.text = "Conectado a: ${device.name}"
+                                       ~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:229: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+     statusView.text = "Conectado a: ${device.name}"
+                                       ~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:231: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+     Toast.makeText(this@MainActivity, "Conectado a: ${device.name}", Toast.LENGTH_SHORT).show()
+                                                       ~~~~~~~~~~~
+
+   Explanation for issues of type "MissingPermission":
+   This check scans through your code and libraries and looks at the APIs
+   being used, and checks this against the set of permissions required to
+   access those APIs. If the code using those APIs is called at runtime, then
+   the program will crash.
+
+   Furthermore, for permissions that are revocable (with targetSdkVersion 23),
+   client code must also be prepared to handle the calls throwing an exception
+   if the user rejects the request for permission at runtime.
+
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:142: Warning: The id R.id.btnGerenciarHorario has already been looked up in this method; possible cut & paste error? [CutPasteId]
+  val btnTeste = findViewById<MaterialButton>(R.id.btnGerenciarHorario)
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:74: First usage here
+
+   Explanation for issues of type "CutPasteId":
+   This lint check looks for cases where you have cut & pasted calls to
+   findViewById but have forgotten to update the R.id field. It's possible
+   that your code is simply (redundantly) looking up the field repeatedly, but
+   lint cannot distinguish that from a case where you for example want to
+   initialize fields prev and next and you cut & pasted
+   findViewById(R.id.prev) and forgot to update the second initialization to
+   R.id.next.
+
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\AdicionarHorarioActivity.kt:93: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+            btn.text = String.format("%02d:%02d", horaInicial, minutosInicial)
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\AdicionarHorarioActivity.kt:93: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+            btn.text = String.format("%02d:%02d", horaInicial, minutosInicial)
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\AdicionarHorarioActivity.kt:108: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+            btn.text = String.format("%02d:%02d", horaFinal, minutosFinal)
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\AdicionarHorarioActivity.kt:108: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+            btn.text = String.format("%02d:%02d", horaFinal, minutosFinal)
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\EditarHorarioActivity.kt:49: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+                btnHorarioInicial.text = String.format("%02d:%02d", horaInicial, minutosInicial)
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\EditarHorarioActivity.kt:49: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+                btnHorarioInicial.text = String.format("%02d:%02d", horaInicial, minutosInicial)
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\EditarHorarioActivity.kt:50: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+                btnHorarioFinal.text = String.format("%02d:%02d", horaFinal, minutosFinal)
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\EditarHorarioActivity.kt:50: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+                btnHorarioFinal.text = String.format("%02d:%02d", horaFinal, minutosFinal)
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\EditarHorarioActivity.kt:86: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+            btn.text = String.format("%02d:%02d", horaInicial, minutosInicial)
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\EditarHorarioActivity.kt:86: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+            btn.text = String.format("%02d:%02d", horaInicial, minutosInicial)
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\EditarHorarioActivity.kt:101: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+            btn.text = String.format("%02d:%02d", horaFinal, minutosFinal)
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\EditarHorarioActivity.kt:101: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+            btn.text = String.format("%02d:%02d", horaFinal, minutosFinal)
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\HorarioAdapter.kt:34: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+        val horaInicial = String.format("%02d:%02d", horario.horaInicial, horario.minutosInicial)
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\HorarioAdapter.kt:35: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+        val horaFinal = String.format("%02d:%02d", horario.horaFinal, horario.minutosFinal)
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\HorarioAdapter.kt:36: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+        val data = if (horario.dia > 0 && horario.mes > 0 && horario.ano > 0) String.format("%02d/%02d/%04d", horario.dia, horario.mes, horario.ano) else "Sem data"
+                                                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:305: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+      txtTemperaturaValor.text = "${String.format("%.1f", temp)} °C"
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:305: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+      txtTemperaturaValor.text = "${String.format("%.1f", temp)} °C"
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:313: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+      txtUmidadeArValor.text = "${String.format("%.1f", ar)}%"
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:313: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+      txtUmidadeArValor.text = "${String.format("%.1f", ar)}%"
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:331: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+      txtUmidadeSoloValor.text = "${String.format("%.1f", solo)}%"
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:331: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+      txtUmidadeSoloValor.text = "${String.format("%.1f", solo)}%"
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:348: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+      txtTemperaturaValor.text = "${String.format("%.1f", temp)} °C"
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:348: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+      txtTemperaturaValor.text = "${String.format("%.1f", temp)} °C"
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:364: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+      txtUmidadeArValor.text = "${String.format("%.1f", ar)}%"
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:364: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+      txtUmidadeArValor.text = "${String.format("%.1f", ar)}%"
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:380: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+      txtUmidadeSoloValor.text = "${String.format("%.1f", solo)}%"
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:380: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+      txtUmidadeSoloValor.text = "${String.format("%.1f", solo)}%"
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "DefaultLocale":
+   Calling String#toLowerCase() or #toUpperCase() without specifying an
+   explicit locale is a common source of bugs. The reason for that is that
+   those methods will use the current locale on the user's device, and even
+   though the code appears to work correctly when you are developing the app,
+   it will fail in some locales. For example, in the Turkish locale, the
+   uppercase replacement for i is not I.
+
+   If you want the methods to just perform ASCII replacement, for example to
+   convert an enum name, call String#toUpperCase(Locale.ROOT) instead. If you
+   really want to use the current locale, call
+   String#toUpperCase(Locale.getDefault()) instead.
+
+   https://developer.android.com/reference/java/util/Locale.html#default_locale
+
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:102: Warning: Field requires API level 31 (current min is 30): android.Manifest.permission#BLUETOOTH_CONNECT [InlinedApi]
+      Manifest.permission.BLUETOOTH_CONNECT,
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:103: Warning: Field requires API level 31 (current min is 30): android.Manifest.permission#BLUETOOTH_SCAN [InlinedApi]
+      Manifest.permission.BLUETOOTH_SCAN,
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "InlinedApi":
+   This check scans through all the Android API field references in the
+   application and flags certain constants, such as static final integers and
+   Strings, which were introduced in later versions. These will actually be
+   copied into the class files rather than being referenced, which means that
+   the value is available even when running on older devices. In some cases
+   that's fine, and in other cases it can result in a runtime crash or
+   incorrect behavior. It depends on the context, so consider the code
+   carefully and decide whether it's safe and can be suppressed or whether the
+   code needs to be guarded.
+
+   If you really want to use this API and don't need to support older devices
+   just set the minSdkVersion in your build.gradle or AndroidManifest.xml
+   files.
+
+   If your code is deliberately accessing newer APIs, and you have ensured
+   (e.g. with conditional execution) that this code will only ever be called
+   on a supported platform, then you can annotate your class or method with
+   the @TargetApi annotation specifying the local minimum SDK to apply, such
+   as @TargetApi(11), such that this check considers 11 rather than your
+   manifest file's minimum SDK as the required API level.
+
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\AndroidManifest.xml:24: Error: This class should provide a default constructor (a public constructor with no arguments) (com.example.extensaotelas.BancoDeDados.Horario) [Instantiatable]
+            android:name=".BancoDeDados.Horario"
+                          ~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\AndroidManifest.xml:24: Error: Horario must extend android.app.Activity [Instantiatable]
+            android:name=".BancoDeDados.Horario"
+                          ~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "Instantiatable":
+   Activities, services, broadcast receivers etc. registered in the manifest
+   file (or for custom views, in a layout file) must be "instantiatable" by
+   the system, which means that the class must be public, it must have an
+   empty public constructor, and if it's an inner class, it must be a static
+   inner class.
+
+   If you use a custom AppComponentFactory to instantiate app components
+   yourself, consider disabling this Lint issue in order to avoid false
+   positives.
+
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build.gradle.kts:14: Warning: Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details. [OldTargetApi]
+        targetSdk = 35
+        ~~~~~~~~~~~~~~
+
+   Explanation for issues of type "OldTargetApi":
+   When your application or sdk runs on a version of Android that is more
+   recent than your targetSdkVersion specifies that it has been tested with,
+   various compatibility modes kick in. This ensures that your application
+   continues to work, but it may look out of place. For example, if the
+   targetSdkVersion is less than 14, your app may get an option button in the
+   UI.
+
+   To fix this issue, set the targetSdkVersion to the highest available value.
+   Then test your app to make sure everything works correctly. You may want to
+   consult the compatibility notes to see what changes apply to each version
+   you are adding support for:
+   https://developer.android.com/reference/android/os/Build.VERSION_CODES.html
+   as well as follow this guide:
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.
+   html
+
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.html
+
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\AndroidManifest.xml:10: Error: If you need access to FINE location, you must request both ACCESS_FINE_LOCATION and ACCESS_COARSE_LOCATION [CoarseFineLocation]
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "CoarseFineLocation":
+   If your app requires access to FINE location, on Android 12 and higher you
+   must now request both FINE and COARSE. Users will have the option to grant
+   only COARSE location. Ensure your app can work with just COARSE location.
+
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\gradle\libs.versions.toml:2: Warning: A newer version of com.android.application than 8.10.1 is available: 8.12.1 [AndroidGradlePluginVersion]
+agp = "8.10.1"
+      ~~~~~~~~
+
+   Explanation for issues of type "AndroidGradlePluginVersion":
+   This detector looks for usage of the Android Gradle Plugin where the
+   version you are using is not the current stable release. Using older
+   versions is fine, and there are cases where you deliberately want to stick
+   with an older version. However, you may simply not be aware that a more
+   recent version is available, and that is what this lint check helps find.
+
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\gradle\libs.versions.toml:5: Warning: A newer version of androidx.core:core-ktx than 1.16.0 is available: 1.17.0 [GradleDependency]
+coreKtx = "1.16.0"
+          ~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\gradle\libs.versions.toml:7: Warning: A newer version of androidx.test.ext:junit than 1.2.1 is available: 1.3.0 [GradleDependency]
+junitVersion = "1.2.1"
+               ~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\gradle\libs.versions.toml:8: Warning: A newer version of androidx.test.espresso:espresso-core than 3.6.1 is available: 3.7.0 [GradleDependency]
+espressoCore = "3.6.1"
+               ~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\ListaHorariosActivity.kt:60: Warning: It will always be more efficient to use more specific change events if you can. Rely on notifyDataSetChanged as a last resort. [NotifyDataSetChanged]
+                adapter.notifyDataSetChanged()
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\ListaHorariosActivity.kt:113: Warning: It will always be more efficient to use more specific change events if you can. Rely on notifyDataSetChanged as a last resort. [NotifyDataSetChanged]
+                    adapter.notifyDataSetChanged()
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\ListaHorariosActivity.kt:132: Warning: It will always be more efficient to use more specific change events if you can. Rely on notifyDataSetChanged as a last resort. [NotifyDataSetChanged]
+                adapter.notifyDataSetChanged()
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\ListaHorariosActivity.kt:151: Warning: It will always be more efficient to use more specific change events if you can. Rely on notifyDataSetChanged as a last resort. [NotifyDataSetChanged]
+            adapter.notifyDataSetChanged()
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "NotifyDataSetChanged":
+   The RecyclerView adapter's onNotifyDataSetChanged method does not specify
+   what about the data set has changed, forcing any observers to assume that
+   all existing items and structure may no longer be valid. `LayoutManager`s
+   will be forced to fully rebind and relayout all visible views.
+
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\activity_horario.xml:2: Warning: The resource R.layout.activity_horario appears to be unused [UnusedResources]
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+^
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\values\colors.xml:3: Warning: The resource R.color.black appears to be unused [UnusedResources]
+    <color name="black">#FF000000</color>
+           ~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\values\colors.xml:4: Warning: The resource R.color.white appears to be unused [UnusedResources]
+    <color name="white">#FFFFFFFF</color>
+           ~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests =true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests =true.
+   ,
+
+   Available options:
+
+   **skip-libraries** (default is true):
+   Whether the unused resource check should skip reporting unused resources in libraries.
+
+   Many libraries will declare resources that are part of the library surface; other modules depending on the library will also reference the resources. To avoid reporting all these resources as unused (in the context of a library), the unused resource check normally skips reporting unused resources in libraries. Instead, run the unused resource check on the consuming app module (along with `checkDependencies=true`).
+
+   However, there are cases where you want to check that all the resources declared in a library are used; in that case, you can disable the skip option.
+
+   To configure this option, use a `lint.xml` file with an <option> like this:
+
+   ```xml
+   <lint>
+       <issue id="UnusedResources">
+           <option name="skip-libraries" value="true" />
+       </issue>
+   </lint>
+   ```
+
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build.gradle.kts:48: Warning: Use version catalog instead [UseTomlInstead]
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0") // Lib do gráfico
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build.gradle.kts:51: Warning: Use version catalog instead [UseTomlInstead]
+    implementation("androidx.room:room-runtime:$room_version")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build.gradle.kts:52: Warning: Use version catalog instead [UseTomlInstead]
+    implementation("androidx.room:room-ktx:$room_version")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build.gradle.kts:53: Warning: Use version catalog instead [UseTomlInstead]
+    ksp("androidx.room:room-compiler:$room_version")
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UseTomlInstead":
+   If your project is using a libs.versions.toml file, you should place all
+   Gradle dependencies in the TOML file. This lint check looks for version
+   declarations outside of the TOML file and suggests moving them (and in the
+   IDE, provides a quickfix to performing the operation automatically).
+
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\AdicionarHorarioActivity.kt:50: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        btnHorarioInicial.text = "Selecionar Horário Inicial"
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\AdicionarHorarioActivity.kt:51: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        btnHorarioFinal.text = "Selecionar Horário Final"
+                                ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\HorarioAdapter.kt:37: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        holder.textViewHorario.text = "$data | $horaInicial - $horaFinal"
+                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:55: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+     textViewStatus.text = "Desconectado"
+                            ~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:211: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+   textViewStatus.text = "Desconectado"
+                          ~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:229: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+     statusView.text = "Conectado a: ${device.name}"
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:229: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+     statusView.text = "Conectado a: ${device.name}"
+                        ~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:238: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+     statusView.text = "Falha na conexão"
+                        ~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:265: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+      textViewStatus.text = "Conexão perdida"
+                             ~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:305: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+      txtTemperaturaValor.text = "${String.format("%.1f", temp)} °C"
+                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:313: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+      txtUmidadeArValor.text = "${String.format("%.1f", ar)}%"
+                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:331: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+      txtUmidadeSoloValor.text = "${String.format("%.1f", solo)}%"
+                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:348: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+      txtTemperaturaValor.text = "${String.format("%.1f", temp)} °C"
+                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:364: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+      txtUmidadeArValor.text = "${String.format("%.1f", ar)}%"
+                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\java\com\example\extensaotelas\MainActivity.kt:380: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+      txtUmidadeSoloValor.text = "${String.format("%.1f", solo)}%"
+                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "SetTextI18n":
+   When calling TextView#setText
+   * Never call Number#toString() to format numbers; it will not handle
+   fraction separators and locale-specific digits properly. Consider using
+   String#format with proper format specifications (%d or %f) instead.
+   * Do not pass a string literal (e.g. "Hello") to display text. Hardcoded
+   text can not be properly translated to other languages. Consider using
+   Android resource strings instead.
+   * Do not build messages by concatenating text chunks. Such messages can not
+   be properly translated.
+
+   https://developer.android.com/guide/topics/resources/localization.html
+
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\activity_adicionar_horario.xml:27: Warning: Hardcoded string "Adicionar Horário", should use @string resource [HardcodedText]
+    android:text="Adicionar Horário"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\activity_adicionar_horario.xml:43: Warning: Hardcoded string "Selecionar Horário Inicial", should use @string resource [HardcodedText]
+    android:text="Selecionar Horário Inicial"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\activity_adicionar_horario.xml:51: Warning: Hardcoded string "Selecionar Horário Final", should use @string resource [HardcodedText]
+    android:text="Selecionar Horário Final"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\activity_adicionar_horario.xml:59: Warning: Hardcoded string "Salvar Horário", should use @string resource [HardcodedText]
+    android:text="Salvar Horário"/>
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\activity_editar_horario.xml:27: Warning: Hardcoded string "Editar Horário", should use @string resource [HardcodedText]
+    android:text="Editar Horário"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\activity_editar_horario.xml:43: Warning: Hardcoded string "Editar Horário Inicial", should use @string resource [HardcodedText]
+    android:text="Editar Horário Inicial"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\activity_editar_horario.xml:51: Warning: Hardcoded string "Editar Horário Final", should use @string resource [HardcodedText]
+    android:text="Editar Horário Final"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\activity_editar_horario.xml:59: Warning: Hardcoded string "Salvar Alterações", should use @string resource [HardcodedText]
+    android:text="Salvar Alterações"/>
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\activity_lista_horarios.xml:28: Warning: Hardcoded string "Lista de Horários", should use @string resource [HardcodedText]
+    android:text="Lista de Horários"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\activity_lista_horarios.xml:44: Warning: Hardcoded string "Adicionar Novo Horário", should use @string resource [HardcodedText]
+    android:text="Adicionar Novo Horário"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\activity_lista_horarios.xml:51: Warning: Hardcoded string "Nenhum horário cadastrado", should use @string resource [HardcodedText]
+    android:text="Nenhum horário cadastrado"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\activity_main.xml:60: Warning: Hardcoded string "TEMPERATURA ATUAL", should use @string resource [HardcodedText]
+     android:text="TEMPERATURA ATUAL"
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\activity_main.xml:71: Warning: Hardcoded string "25 °C", should use @string resource [HardcodedText]
+     android:text="25 °C"
+     ~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\activity_main.xml:109: Warning: Hardcoded string "UMIDADE DO AR", should use @string resource [HardcodedText]
+      android:text="UMIDADE DO AR"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\activity_main.xml:120: Warning: Hardcoded string "40%", should use @string resource [HardcodedText]
+      android:text="40%"
+      ~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\activity_main.xml:150: Warning: Hardcoded string "UMIDADE DO SOLO", should use @string resource [HardcodedText]
+      android:text="UMIDADE DO SOLO"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\activity_main.xml:161: Warning: Hardcoded string "20%", should use @string resource [HardcodedText]
+      android:text="20%"
+      ~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\activity_main.xml:199: Warning: Hardcoded string "CONECTAR", should use @string resource [HardcodedText]
+      android:text="CONECTAR"
+      ~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\activity_main.xml:212: Warning: Hardcoded string "DESCONECTAR", should use @string resource [HardcodedText]
+      android:text="DESCONECTAR"
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\activity_main.xml:224: Warning: Hardcoded string "Desconectado", should use @string resource [HardcodedText]
+     android:text="Desconectado"
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\activity_main.xml:243: Warning: Hardcoded string "GERENCIAR HORÁRIOS", should use @string resource [HardcodedText]
+    android:text="GERENCIAR HORÁRIOS"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\item_horario.xml:28: Warning: Hardcoded string "08:00 - 09:00", should use @string resource [HardcodedText]
+   android:text="08:00 - 09:00"
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\item_horario.xml:38: Warning: Hardcoded string "Editar", should use @string resource [HardcodedText]
+   android:text="Editar"
+   ~~~~~~~~~~~~~~~~~~~~~
+D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\src\main\res\layout\item_horario.xml:47: Warning: Hardcoded string "Excluir", should use @string resource [HardcodedText]
+   android:text="Excluir"
+   ~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "HardcodedText":
+   Hardcoding text attributes directly in layout files is bad for several
+   reasons:
+
+   * When creating configuration variations (for example for landscape or
+   portrait) you have to repeat the actual text (and keep it up to date when
+   making changes)
+
+   * The application cannot be translated to other languages by just adding
+   new translations for existing string resources.
+
+   There are quickfixes to automatically extract this hardcoded string into a
+   resource lookup.
+
+8 errors, 85 warnings

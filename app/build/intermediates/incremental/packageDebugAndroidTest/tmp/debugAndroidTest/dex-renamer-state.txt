@@ -1,0 +1,10 @@
+#Fri Aug 22 11:32:23 CLT 2025
+base.0=D\:\\Downloads\\Versao1.1-Design-2-main\\Versao1.1-Design-2-main\\Versao1.1\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeExtDexDebugAndroidTest\\classes.dex
+base.1=D\:\\Downloads\\Versao1.1-Design-2-main\\Versao1.1-Design-2-main\\Versao1.1\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\0\\classes.dex
+base.2=D\:\\Downloads\\Versao1.1-Design-2-main\\Versao1.1-Design-2-main\\Versao1.1\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\1\\classes.dex
+path.0=classes.dex
+path.1=0/classes.dex
+path.2=1/classes.dex
+renamed.0=classes.dex
+renamed.1=classes2.dex
+renamed.2=classes3.dex

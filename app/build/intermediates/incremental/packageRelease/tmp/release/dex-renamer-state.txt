@@ -1,0 +1,7 @@
+#Fri Aug 22 11:45:25 CLT 2025
+base.1=D\:\\Downloads\\Versao1.1-Design-2-main\\Versao1.1-Design-2-main\\Versao1.1\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes2.dex
+path.1=classes2.dex
+base.0=D\:\\Downloads\\Versao1.1-Design-2-main\\Versao1.1-Design-2-main\\Versao1.1\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+path.0=classes.dex
