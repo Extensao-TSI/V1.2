@@ -29,6 +29,7 @@ import java.io.IOException
 import java.util.UUID
 import android.app.AlertDialog
 import java.io.InputStream
+import android.util.Log
 
 class MainActivity : AppCompatActivity() {
 	private var discoveredDevices = mutableListOf<BluetoothDevice>()
@@ -197,28 +198,40 @@ class MainActivity : AppCompatActivity() {
 			try {
 				// Cancelar discovery para acelerar a conexão
 				if (bluetoothAdapter.isDiscovering) bluetoothAdapter.cancelDiscovery()
+				// Tentativa 1: socket seguro padrão
 				socket = device.createRfcommSocketToServiceRecord(uuid)
 				socket.connect()
-				connectedSocket = socket
-				runOnUiThread {
-					statusView.text = "Conectado a: ${device.name}"
-					statusView.setTextColor(Color.GREEN)
-					Toast.makeText(this@MainActivity, "Conectado a: ${device.name}", Toast.LENGTH_SHORT).show()
-					btnGerenciarHorario.isEnabled = true
+			} catch (e1: IOException) {
+				Log.w("BT_CONNECT", "Secure connect falhou: ${e1.message}. Tentando insecure...")
+				try {
+					// Tentativa 2: socket inseguro (HC-05 frequentemente precisa)
+					socket = device.createInsecureRfcommSocketToServiceRecord(uuid)
+					socket.connect()
+				} catch (e2: IOException) {
+					Log.e("BT_CONNECT", "Insecure connect falhou: ${e2.message}")
+					runOnUiThread {
+						statusView.text = "Falha na conexão"
+						statusView.setTextColor(Color.RED)
+						Toast.makeText(this@MainActivity, "Erro ao conectar: ${e2.message}", Toast.LENGTH_SHORT).show()
+						btnGerenciarHorario.isEnabled = false
+					}
+					try { socket?.close() } catch (_: IOException) {}
+					return
 				}
-				// Iniciar thread de leitura
-				connectedThread?.cancel()
-				connectedThread = ConnectedThread(socket.inputStream)
-				connectedThread?.start()
-			} catch (e: IOException) {
-				runOnUiThread {
-					statusView.text = "Falha na conexão"
-					statusView.setTextColor(Color.RED)
-					Toast.makeText(this@MainActivity, "Erro ao conectar: ${e.message}", Toast.LENGTH_SHORT).show()
-					btnGerenciarHorario.isEnabled = false
-				}
-				try { socket?.close() } catch (_: IOException) {}
 			}
+
+			// Conectado
+			connectedSocket = socket
+			runOnUiThread {
+				statusView.text = "Conectado a: ${device.name}"
+				statusView.setTextColor(Color.GREEN)
+				Toast.makeText(this@MainActivity, "Conectado a: ${device.name}", Toast.LENGTH_SHORT).show()
+				btnGerenciarHorario.isEnabled = true
+			}
+			// Iniciar thread de leitura
+			connectedThread?.cancel()
+			connectedThread = ConnectedThread(socket!!.inputStream)
+			connectedThread?.start()
 		}
 	}
 
@@ -234,14 +247,15 @@ class MainActivity : AppCompatActivity() {
 					if (bytesRead == -1) break
 					val chunk = String(buffer, 0, bytesRead, Charsets.UTF_8)
 					sb.append(chunk)
-					var newlineIndex = sb.indexOf("\n")
-					while (newlineIndex >= 0) {
-						val line = sb.substring(0, newlineIndex).trim()
+					var idxNewLine = indexOfEndOfLine(sb)
+					while (idxNewLine >= 0) {
+						val line = sb.substring(0, idxNewLine).trim()
 						if (line.isNotEmpty()) {
+							Log.d("BT_RX", "Linha recebida: $line")
 							processReceivedData(line)
 						}
-						sb.delete(0, newlineIndex + 1)
-						newlineIndex = sb.indexOf("\n")
+						sb.delete(0, idxNewLine + 1)
+						idxNewLine = indexOfEndOfLine(sb)
 					}
 				} catch (e: IOException) {
 					break
@@ -260,39 +274,84 @@ class MainActivity : AppCompatActivity() {
 		}
 	}
 
-	private fun processReceivedData(data: String) {
-        // Exemplo de linha: T_amb: 23 °C\tUmidade do ar: 60 %
-        // Ou: Umidade do Solo: 45 %
+	private fun indexOfEndOfLine(sb: StringBuilder): Int {
+		val nIdx = sb.indexOf("\n")
+		val rIdx = sb.indexOf("\r")
+		return when {
+			nIdx == -1 && rIdx == -1 -> -1
+			nIdx == -1 -> rIdx
+			rIdx == -1 -> nIdx
+			else -> minOf(nIdx, rIdx)
+		}
+	}
 
-		// Referências aos novos TextViews
+	private fun processReceivedData(data: String) {
+        // Suporta vários formatos: com rótulos (T/Temp, H/Umidade, S/Solo), CSV, etc.
+
 		val txtTemperaturaValor = findViewById<TextView>(R.id.txtTemperaturaValor)
 		val txtUmidadeArValor = findViewById<TextView>(R.id.txtUmidadeArValor)
 		val txtUmidadeSoloValor = findViewById<TextView>(R.id.txtUmidadeSoloValor)
 
-        if (data.contains("T_amb:")) {
-            val regex = Regex("T_amb:\\s*(\\d+)\\s*°C\\s*\\tUmidade do ar:\\s*(\\d+)\\s*%")
-            val match = regex.find(data)
-            if (match != null) {
-                val temp = match.groupValues[1].toFloat()
-                val ar = match.groupValues[2].toFloat()
-                lastTemp = temp
-                lastAr = ar
-				runOnUiThread {
-					txtTemperaturaValor.text = "$lastTemp °C"
-					txtUmidadeArValor.text = "$lastAr%"
+		val s = data.replace(',', '.')
+		Log.d("BT_RX", "Processando: $s")
 
+		var updated = false
+
+		// 1) Linha com temperatura e umidade do ar
+		run {
+			val rx = Regex("(T(?:emp)?)[^0-9-]*(-?[0-9]+(?:\\.[0-9]+)?)|Umidade\\s*do\\s*ar[^0-9-]*(-?[0-9]+(?:\\.[0-9]+)?)|H(?:um)?[^0-9-]*(-?[0-9]+(?:\\.[0-9]+)?)",
+				RegexOption.IGNORE_CASE)
+			val matches = rx.findAll(s).toList()
+			var t: Float? = null
+			var h: Float? = null
+			for (m in matches) {
+				val full = m.value.lowercase()
+				val numStr = Regex("-?[0-9]+(?:\\.[0-9]+)?").find(full)?.value
+				val v = numStr?.toFloatOrNull() ?: continue
+				if (full.contains("t")) t = v else h = v
+			}
+			if (t != null || h != null) {
+				if (t != null) lastTemp = t
+				if (h != null) lastAr = h
+				runOnUiThread {
+					lastTemp?.let { txtTemperaturaValor.text = String.format("%.0f °C", it) }
+					lastAr?.let { txtUmidadeArValor.text = String.format("%.0f%%", it) }
 				}
-            }
-        } else if (data.contains("Umidade do Solo:")) {
-            val regex = Regex("Umidade do Solo:\\s*(\\d+)\\s*%")
-            val match = regex.find(data)
-            if (match != null) {
-                val solo = match.groupValues[1].toFloat()
-                lastSolo = solo
-                runOnUiThread {
-                    txtUmidadeSoloValor.text = "$lastSolo%"
-                }
-            }
-        }
-    }
+				updated = true
+				Log.d("BT_RX", "Atualizado: Temp=$lastTemp, Ar=$lastAr")
+			}
+		}
+
+		// 2) Linha com umidade do solo
+		if (!updated) {
+			val rxSolo = Regex("(solo|soil|s)[^0-9-]*(-?[0-9]+(?:\\.[0-9]+)?)", RegexOption.IGNORE_CASE)
+			val m = rxSolo.find(s)
+			if (m != null) {
+				val v = m.groupValues.last().toFloatOrNull()
+				if (v != null) {
+					lastSolo = v
+					runOnUiThread { txtUmidadeSoloValor.text = String.format("%.0f%%", v) }
+					updated = true
+					Log.d("BT_RX", "Atualizado: Solo=$lastSolo")
+				}
+			}
+		}
+
+		// 3) CSV: temp,ar,solo
+		if (!updated && s.contains(";", true) || s.contains(",") || s.contains(" ")) {
+			val tokens = s.split(';', ',', ' ', '\t').map { it.trim() }.filter { it.isNotEmpty() }
+			if (tokens.size >= 2) {
+				val t = tokens.getOrNull(0)?.toFloatOrNull()
+				val h = tokens.getOrNull(1)?.toFloatOrNull()
+				val so = tokens.getOrNull(2)?.toFloatOrNull()
+				if (t != null) { lastTemp = t; runOnUiThread { txtTemperaturaValor.text = String.format("%.1f °C", t) } }
+				if (h != null) { lastAr = h; runOnUiThread { txtUmidadeArValor.text = String.format("%.0f%%", h) } }
+				if (so != null) { lastSolo = so; runOnUiThread { txtUmidadeSoloValor.text = String.format("%.0f%%", so) } }
+				if (t != null || h != null || so != null) {
+					updated = true
+					Log.d("BT_RX", "Atualizado CSV: Temp=$lastTemp, Ar=$lastAr, Solo=$lastSolo")
+				}
+			}
+		}
+	}
 }
