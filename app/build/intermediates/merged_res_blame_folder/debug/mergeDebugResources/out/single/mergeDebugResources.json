@@ -1,122 +1,122 @@
 [
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\layout_activity_lista_horarios.xml.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\layout\\activity_lista_horarios.xml"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/drawable_ic_relogio.xml.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/drawable/ic_relogio.xml"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\xml\\data_extraction_rules.xml"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/layout_activity_main.xml.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/layout/activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/drawable_ic_launcher_background.xml.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/xml_data_extraction_rules.xml.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/drawable_temperature_gradient.xml.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/drawable/temperature_gradient.xml"
     },
     {
         "merged": "com.example.extensaotelas.app-debug-37:/layout_activity_main.xml.flat",
         "source": "com.example.extensaotelas.app-main-39:/layout/activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\mipmap-hdpi\\ic_launcher_round.webp"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/layout_activity_editar_horario.xml.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/layout/activity_editar_horario.xml"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\mipmap-hdpi\\ic_launcher.webp"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\xml\\backup_rules.xml"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\layout_activity_adicionar_horario.xml.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\layout\\activity_adicionar_horario.xml"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/layout_activity_lista_horarios.xml.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/layout/activity_lista_horarios.xml"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\mipmap-mdpi\\ic_launcher_round.webp"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/mipmap-anydpi/ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\layout_activity_horario.xml.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\layout\\activity_horario.xml"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/layout_item_horario.xml.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/layout/item_horario.xml"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\layout_activity_editar_horario.xml.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\layout\\activity_editar_horario.xml"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\mipmap-xhdpi\\ic_launcher_round.webp"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/drawable_ic_bluetooth.xml.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/drawable/ic_bluetooth.xml"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\drawable_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\drawable\\ic_launcher_foreground.xml"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/xml_backup_rules.xml.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/xml/backup_rules.xml"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\drawable_gradient_background.xml.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\drawable\\gradient_background.xml"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\layout_item_horario.xml.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\layout\\item_horario.xml"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/layout_activity_adicionar_horario.xml.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/layout/activity_adicionar_horario.xml"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\drawable_item_gradient.xml.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\drawable\\item_gradient.xml"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\mipmap-xxhdpi\\ic_launcher.webp"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\drawable\\ic_launcher_background.xml"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/drawable/ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\mipmap-xhdpi\\ic_launcher.webp"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/drawable_humidity_air_gradient.xml.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/drawable/humidity_air_gradient.xml"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/drawable_item_gradient.xml.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/drawable/item_gradient.xml"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\drawable_ic_relogio.xml.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\drawable\\ic_relogio.xml"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/mipmap-anydpi/ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\drawable_humidity_air_gradient.xml.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\drawable\\humidity_air_gradient.xml"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\mipmap-mdpi\\ic_launcher.webp"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/layout_activity_horario.xml.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/layout/activity_horario.xml"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\drawable_humidity_soil_gradient.xml.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\drawable\\humidity_soil_gradient.xml"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/drawable_humidity_soil_gradient.xml.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/drawable/humidity_soil_gradient.xml"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\mipmap-xxxhdpi\\ic_launcher.webp"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/drawable_gradient_background.xml.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/drawable/gradient_background.xml"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\mipmap-anydpi_ic_launcher.xml.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\mipmap-anydpi\\ic_launcher.xml"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\drawable_temperature_gradient.xml.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\drawable\\temperature_gradient.xml"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\drawable_ic_bluetooth.xml.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\drawable\\ic_bluetooth.xml"
-    },
-    {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-debug-37:\\mipmap-anydpi_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\2406499\\.gradle\\daemon\\8.11.1\\com.example.extensaotelas.app-main-39:\\mipmap-anydpi\\ic_launcher_round.xml"
+        "merged": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-debug-37:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/home/isaque-mello/.gradle/daemon/8.11.1/com.example.extensaotelas.app-main-39:/mipmap-xxxhdpi/ic_launcher.webp"
     }
 ]

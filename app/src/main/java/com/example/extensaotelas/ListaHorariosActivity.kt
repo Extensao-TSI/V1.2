@@ -7,9 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.TextView
+import android.widget.Toast
 import com.example.extensaotelas.BancoDeDados.AppDatabase
 import com.example.extensaotelas.BancoDeDados.Horario
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -22,7 +24,31 @@ class ListaHorariosActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if (BluetoothConnectionManager.isConnected.value != true) {
+            Toast.makeText(this, "Conexão perdida. Tente novamente.", Toast.LENGTH_SHORT).show()
+            finish() // Fecha imediatamente se já chegar aqui desconectado.
+            return
+        }
         setContentView(R.layout.activity_lista_horarios)
+
+        BluetoothConnectionManager.isConnected.observe(this) { isConnected ->
+            if (!isConnected) {
+                // A conexão caiu!
+                val rootView = findViewById<android.view.View>(android.R.id.content)
+
+                val snackbar = Snackbar.make(rootView, "Conexão perdida!", Snackbar.LENGTH_INDEFINITE)
+
+                snackbar.setAction("VOLTAR AO INÍCIO") {
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                    startActivity(intent)
+                    finish()
+                }
+
+                snackbar.show()
+            }
+        }
 
         db = androidx.room.Room.databaseBuilder(
             applicationContext,
