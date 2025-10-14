@@ -51,6 +51,81 @@
 				android:text="Selecionar Horário Final"
 				android:layout_marginBottom="24dp"/>
 
+			<!-- Seletor de dias da semana -->
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Dias da semana"
+				android:textStyle="bold"
+				android:textColor="#FFFFFF"
+				android:layout_marginBottom="8dp"/>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:layout_marginBottom="16dp">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal">
+					<CheckBox
+						android:id="@+id/cbDom"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Domingo"/>
+					<CheckBox
+						android:id="@+id/cbSeg"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Segunda"
+						android:layout_marginStart="16dp"/>
+					<CheckBox
+						android:id="@+id/cbTer"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Terça"
+						android:layout_marginStart="16dp"/>
+				</LinearLayout>
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:layout_marginTop="8dp">
+					<CheckBox
+						android:id="@+id/cbQua"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Quarta"/>
+					<CheckBox
+						android:id="@+id/cbQui"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Quinta"
+						android:layout_marginStart="16dp"/>
+					<CheckBox
+						android:id="@+id/cbSex"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Sexta"
+						android:layout_marginStart="16dp"/>
+				</LinearLayout>
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:layout_marginTop="8dp">
+					<CheckBox
+						android:id="@+id/cbSab"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Sábado"/>
+				</LinearLayout>
+			</LinearLayout>
+
 			<com.google.android.material.button.MaterialButton
 				android:id="@+id/btnSalvarHorario"
 				style="@style/AppButtonPrimary"

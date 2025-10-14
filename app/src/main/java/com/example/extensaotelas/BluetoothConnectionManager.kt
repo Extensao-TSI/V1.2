@@ -13,6 +13,5 @@ object BluetoothConnectionManager {
     fun setConnectionStatus(connected: Boolean) {
         Log.d("BT_DEBUG", "BluetoothConnectionManager: setConnectionStatus chamado. Novo estado = $connected")
         _isConnected.postValue(connected)
-        _isConnected.postValue(connected)
     }
 }

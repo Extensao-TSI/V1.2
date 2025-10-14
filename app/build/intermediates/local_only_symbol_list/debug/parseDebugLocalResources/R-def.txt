@@ -23,6 +23,13 @@ id btnHorarioInicial
 id btnSalvarEdicaoHorario
 id btnSalvarHorario
 id btnToggle
+id cbDom
+id cbQua
+id cbQui
+id cbSab
+id cbSeg
+id cbSex
+id cbTer
 id linearLayout
 id main
 id recyclerViewHorarios

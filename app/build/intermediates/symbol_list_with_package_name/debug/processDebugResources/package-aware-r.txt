@@ -3234,6 +3234,13 @@ id cache_measures
 id callMeasure
 id cancel_button
 id carryVelocity
+id cbDom
+id cbQua
+id cbQui
+id cbSab
+id cbSeg
+id cbSex
+id cbTer
 id center
 id centerCrop
 id centerInside

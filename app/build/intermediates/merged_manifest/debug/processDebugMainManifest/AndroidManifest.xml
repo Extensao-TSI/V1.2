@@ -33,9 +33,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.ExtensaoTelas" >
-        <activity
-            android:name="com.example.extensaotelas.BancoDeDados.Horario"
-            android:exported="false" />
+        <activity android:name="com.example.extensaotelas.EditarHorarioActivity" />
         <activity
             android:name="com.example.extensaotelas.ListaHorariosActivity"
             android:exported="false" />

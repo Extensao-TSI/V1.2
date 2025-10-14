@@ -2,33 +2,31 @@ package com.example.extensaotelas
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.extensaotelas.BancoDeDados.AppDatabase
-import com.example.extensaotelas.BancoDeDados.Horario
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class EditarHorarioActivity : AppCompatActivity() {
-    private lateinit var db: AppDatabase
-    private var horario: Horario? = null
+    private val viewModel: MainViewModel by viewModels()
+
+    private var indice: Int = -1
     private var horaInicial: Int = 0
     private var minutosInicial: Int = 0
     private var horaFinal: Int = 0
     private var minutosFinal: Int = 0
+    private var diasFlags: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar_horario)
 
-        db = androidx.room.Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java, "database-name"
-        ).build()
-
-        val idHorario = intent.getIntExtra("idHorario", -1)
-        if (idHorario == -1) {
+        indice = intent.getIntExtra("index", -1)
+        horaInicial = intent.getIntExtra("startHour", 0)
+        minutosInicial = intent.getIntExtra("startMinute", 0)
+        horaFinal = intent.getIntExtra("endHour", 0)
+        minutosFinal = intent.getIntExtra("endMinute", 0)
+        diasFlags = intent.getIntExtra("daysFlags", 0)
+        if (indice == -1) {
             finish()
             return
         }
@@ -37,19 +35,8 @@ class EditarHorarioActivity : AppCompatActivity() {
         val btnHorarioFinal = findViewById<Button>(R.id.btnEditarHorarioFinal)
         val btnSalvar = findViewById<Button>(R.id.btnSalvarEdicaoHorario)
 
-        lifecycleScope.launch {
-            horario = withContext(Dispatchers.IO) {
-                db.horarioDao().getById(idHorario)
-            }
-            horario?.let {
-                horaInicial = it.horaInicial
-                minutosInicial = it.minutosInicial
-                horaFinal = it.horaFinal
-                minutosFinal = it.minutosFinal
-                btnHorarioInicial.text = String.format("%02d:%02d", horaInicial, minutosInicial)
-                btnHorarioFinal.text = String.format("%02d:%02d", horaFinal, minutosFinal)
-            }
-        }
+        btnHorarioInicial.text = String.format("%02d:%02d", horaInicial, minutosInicial)
+        btnHorarioFinal.text = String.format("%02d:%02d", horaFinal, minutosFinal)
 
         btnHorarioInicial.setOnClickListener {
             mostrarTimePickerHorarioInicial(btnHorarioInicial)
@@ -58,18 +45,17 @@ class EditarHorarioActivity : AppCompatActivity() {
             mostrarTimePickerHorarioFinal(btnHorarioFinal)
         }
         btnSalvar.setOnClickListener {
-            horario?.let { h ->
-                h.horaInicial = horaInicial
-                h.minutosInicial = minutosInicial
-                h.horaFinal = horaFinal
-                h.minutosFinal = minutosFinal
-                lifecycleScope.launch {
-                    withContext(Dispatchers.IO) {
-                        db.horarioDao().updateHorario(h)
-                    }
-                    finish()
-                }
-            }
+            val schedule = Schedule(
+                index = indice,
+                startHour = horaInicial,
+                startMinute = minutosInicial,
+                endHour = horaFinal,
+                endMinute = minutosFinal,
+                daysFlags = diasFlags
+            )
+            viewModel.saveSchedule(schedule)
+            Toast.makeText(this, "Atualizado no Arduino", Toast.LENGTH_SHORT).show()
+            finish()
         }
     }
 

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.extensaotelas.app-mergeDebugResources-35:/values-port/values-port.xml",
+            "outputFile": "com.example.extensaotelas.app-mergeDebugResources-40:/values-port/values-port.xml",
             "map": [
                 {
-                    "source": "/home/isaque-mello/.gradle/caches/8.11.1/transforms/acfb186c430ae63a450360a2e804f432/transformed/appcompat-1.7.1/res/values-port/values-port.xml",
+                    "source": "C:\\Users\\2406499\\.gradle\\caches\\8.11.1\\transforms\\acfb186c430ae63a450360a2e804f432\\transformed\\appcompat-1.7.1\\res\\values-port\\values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
