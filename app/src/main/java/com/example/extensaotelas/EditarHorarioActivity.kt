@@ -2,6 +2,7 @@ package com.example.extensaotelas
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +17,14 @@ class EditarHorarioActivity : AppCompatActivity() {
     private var minutosFinal: Int = 0
     private var diasFlags: Int = 0
 
+    private lateinit var edDom: CheckBox
+    private lateinit var edSeg: CheckBox
+    private lateinit var edTer: CheckBox
+    private lateinit var edQua: CheckBox
+    private lateinit var edQui: CheckBox
+    private lateinit var edSex: CheckBox
+    private lateinit var edSab: CheckBox
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar_horario)
@@ -26,6 +35,13 @@ class EditarHorarioActivity : AppCompatActivity() {
         horaFinal = intent.getIntExtra("endHour", 0)
         minutosFinal = intent.getIntExtra("endMinute", 0)
         diasFlags = intent.getIntExtra("daysFlags", 0)
+        edDom = findViewById(R.id.edDom)
+        edSeg = findViewById(R.id.edSeg)
+        edTer = findViewById(R.id.edTer)
+        edQua = findViewById(R.id.edQua)
+        edQui = findViewById(R.id.edQui)
+        edSex = findViewById(R.id.edSex)
+        edSab = findViewById(R.id.edSab)
         if (indice == -1) {
             finish()
             return
@@ -44,6 +60,18 @@ class EditarHorarioActivity : AppCompatActivity() {
         btnHorarioFinal.setOnClickListener {
             mostrarTimePickerHorarioFinal(btnHorarioFinal)
         }
+        diasFlags = 0
+        if (edDom.isChecked) diasFlags = diasFlags or 1
+        if (edSeg.isChecked) diasFlags = diasFlags or 2
+        if (edTer.isChecked) diasFlags = diasFlags or 4
+        if (edQua.isChecked) diasFlags = diasFlags or 8
+        if (edQui.isChecked) diasFlags = diasFlags or 16
+        if (edSex.isChecked) diasFlags = diasFlags or 32
+        if (edSab.isChecked) diasFlags = diasFlags or 64
+        if (diasFlags == 0) {
+            Toast.makeText(this@EditarHorarioActivity, "Selecione pelo menos um dia da semana", Toast.LENGTH_SHORT).show()
+            return
+        }
         btnSalvar.setOnClickListener {
             val schedule = Schedule(
                 index = indice,
@@ -58,6 +86,7 @@ class EditarHorarioActivity : AppCompatActivity() {
             finish()
         }
     }
+
 
     private fun mostrarTimePickerHorarioInicial(btn: Button) {
         val picker = com.google.android.material.timepicker.MaterialTimePicker.Builder()

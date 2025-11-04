@@ -10,8 +10,8 @@
 
 	<LinearLayout
 		android:id="@+id/linearLayout"
-		android:layout_width="0dp"
-		android:layout_height="0dp"
+		android:layout_width="379dp"
+		android:layout_height="708dp"
 		android:layout_marginStart="20dp"
 		android:layout_marginTop="20dp"
 		android:layout_marginEnd="20dp"
@@ -25,53 +25,60 @@
 		app:layout_constraintTop_toTopOf="parent"
 		app:layout_constraintVertical_bias="0.0">
 
-		<!-- Header com gradiente -->
+		<ImageView
+			android:id="@+id/logoBackground"
+			android:layout_width="match_parent"
+			android:layout_height="65dp"
+			android:alpha="0.8"
+			android:scaleType="centerInside"
+			android:src="@drawable/ifms2" />
+
 		<com.google.android.material.card.MaterialCardView
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginBottom="24dp"
+			android:layout_marginBottom="10dp"
+			app:cardBackgroundColor="#2E86AB"
 			app:cardCornerRadius="20dp"
-			app:cardElevation="8dp"
-			app:cardBackgroundColor="#2E86AB"/>
+			app:cardElevation="8dp" />
 
-		<!-- Cards de indicadores com nova aparência -->
+
 		<com.google.android.material.card.MaterialCardView
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginBottom="20dp"
+			app:cardBackgroundColor="#FFFFFF"
 			app:cardCornerRadius="16dp"
 			app:cardElevation="6dp"
-			app:cardBackgroundColor="#FFFFFF"
 			app:strokeColor="#E0E0E0"
 			app:strokeWidth="1dp">
 
 			<LinearLayout
 				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:orientation="vertical"
-				android:padding="28dp"
+				android:layout_height="140dp"
+				android:background="@drawable/temperature_gradient"
 				android:gravity="center"
-				android:background="@drawable/temperature_gradient">
+				android:orientation="vertical"
+				android:padding="25dp">
 
 				<TextView
 					android:id="@+id/txtTituloTemperatura"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:layout_marginBottom="16dp"
 					android:text="TEMPERATURA ATUAL"
-					android:textStyle="bold"
 					android:textAllCaps="true"
-					android:textSize="14sp"
 					android:textColor="#E74C3C"
-					android:layout_marginBottom="16dp"/>
+					android:textSize="14sp"
+					android:textStyle="bold" />
 
 				<TextView
 					android:id="@+id/txtTemperaturaValor"
 					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
+					android:layout_height="54dp"
 					android:text="25 °C"
-					android:textStyle="bold"
+					android:textColor="#E74C3C"
 					android:textSize="48sp"
-					android:textColor="#E74C3C"/>
+					android:textStyle="bold" />
 
 			</LinearLayout>
 		</com.google.android.material.card.MaterialCardView>
@@ -79,89 +86,89 @@
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:orientation="horizontal"
+			android:layout_marginBottom="28dp"
 			android:gravity="center"
-			android:layout_marginBottom="28dp">
+			android:orientation="horizontal">
 
 			<com.google.android.material.card.MaterialCardView
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
-				android:layout_weight="1"
 				android:layout_marginEnd="10dp"
+				android:layout_weight="1"
+				app:cardBackgroundColor="#FFFFFF"
 				app:cardCornerRadius="16dp"
 				app:cardElevation="6dp"
-				app:cardBackgroundColor="#FFFFFF"
 				app:strokeColor="#E0E0E0"
 				app:strokeWidth="1dp">
 
 				<LinearLayout
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:orientation="vertical"
-					android:padding="24dp"
+					android:background="@drawable/humidity_air_gradient"
 					android:gravity="center"
-					android:background="@drawable/humidity_air_gradient">
+					android:orientation="vertical"
+					android:padding="20dp">
 
 					<TextView
 						android:id="@+id/txtTituloUmidadeAr"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
+						android:layout_marginBottom="16dp"
 						android:text="UMIDADE DO AR"
-						android:textStyle="bold"
 						android:textAllCaps="true"
-						android:textSize="12sp"
 						android:textColor="#3498DB"
-						android:layout_marginBottom="16dp"/>
+						android:textSize="12sp"
+						android:textStyle="bold" />
 
 					<TextView
 						android:id="@+id/txtUmidadeArValor"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:text="40%"
-						android:textStyle="bold"
+						android:textColor="#3498DB"
 						android:textSize="36sp"
-						android:textColor="#3498DB"/>
+						android:textStyle="bold" />
 				</LinearLayout>
 			</com.google.android.material.card.MaterialCardView>
 
 			<com.google.android.material.card.MaterialCardView
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
-				android:layout_weight="1"
 				android:layout_marginStart="10dp"
+				android:layout_weight="1"
+				app:cardBackgroundColor="#FFFFFF"
 				app:cardCornerRadius="16dp"
 				app:cardElevation="6dp"
-				app:cardBackgroundColor="#FFFFFF"
 				app:strokeColor="#E0E0E0"
 				app:strokeWidth="1dp">
 
 				<LinearLayout
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:orientation="vertical"
-					android:padding="24dp"
+					android:background="@drawable/humidity_soil_gradient"
 					android:gravity="center"
-					android:background="@drawable/humidity_soil_gradient">
+					android:orientation="vertical"
+					android:padding="20dp">
 
 					<TextView
 						android:id="@+id/txtTituloUmidadeSolo"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
+						android:layout_marginBottom="16dp"
 						android:text="UMIDADE DO SOLO"
-						android:textStyle="bold"
 						android:textAllCaps="true"
-						android:textSize="12sp"
 						android:textColor="#27AE60"
-						android:layout_marginBottom="16dp"/>
+						android:textSize="12sp"
+						android:textStyle="bold" />
 
 					<TextView
 						android:id="@+id/txtUmidadeSoloValor"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:text="20%"
-						android:textStyle="bold"
+						android:textColor="#27AE60"
 						android:textSize="36sp"
-						android:textColor="#27AE60"/>
+						android:textStyle="bold" />
 				</LinearLayout>
 			</com.google.android.material.card.MaterialCardView>
 		</LinearLayout>
@@ -171,9 +178,9 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginBottom="24dp"
+			app:cardBackgroundColor="#FFFFFF"
 			app:cardCornerRadius="16dp"
 			app:cardElevation="6dp"
-			app:cardBackgroundColor="#FFFFFF"
 			app:strokeColor="#E0E0E0"
 			app:strokeWidth="1dp">
 
@@ -181,7 +188,7 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:orientation="vertical"
-				android:padding="24dp">
+				android:padding="20dp">
 
 				<com.google.android.material.button.MaterialButton
 					android:id="@+id/btnBluetooth"
@@ -191,18 +198,18 @@
 					android:text="CONECTAR DISPOSITIVOS"
 					app:icon="@drawable/ic_bluetooth"
 					app:iconGravity="textStart"
-					app:iconSize="25dp"
-					app:iconPadding="16dp" />
+					app:iconPadding="16dp"
+					app:iconSize="25dp" />
 
 				<TextView
 					android:id="@+id/textView2"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
+					android:layout_marginTop="12dp"
+					android:gravity="center"
 					android:text="Desconectado"
 					android:textColor="#E74C3C"
-					android:textSize="18sp"
-					android:gravity="center"
-					android:layout_marginTop="12dp" />
+					android:textSize="18sp" />
 			</LinearLayout>
 		</com.google.android.material.card.MaterialCardView>
 
@@ -218,14 +225,38 @@
 				android:layout_width="match_parent"
 				android:layout_height="60dp"
 				android:text="GERENCIAR HORÁRIOS"
-				android:textStyle="bold"
 				android:textSize="18sp"
+				android:textStyle="bold"
 				app:icon="@drawable/ic_relogio"
 				app:iconGravity="textStart"
-				app:iconSize="25dp"
-				app:iconPadding="16dp" />
+				app:iconPadding="16dp"
+				app:iconSize="25dp" />
+
+			<com.google.android.material.button.MaterialButton
+				android:id="@+id/btnLigarDesligar"
+				style="@style/AppButtonLigar"
+				android:layout_width="match_parent"
+				android:layout_height="60dp"
+				android:text="Ligar"
+				android:textSize="18sp"
+				android:textStyle="bold"
+				app:icon="@drawable/ic_power_off"
+				app:iconGravity="textStart"
+				app:iconPadding="16dp"
+				app:iconSize="25dp" />
+
 
 		</LinearLayout>
+
+		<TextView
+			android:id="@+id/textView3"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="1dp"
+			android:gravity="center"
+			android:text="@string/sobre"
+			android:textColor="#2929F6"
+			android:textSize="18sp" />
 
 	</LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

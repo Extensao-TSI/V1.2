@@ -3,10 +3,13 @@ package com.example.extensaotelas
 import android.annotation.SuppressLint
 import android.app.Application
 import android.bluetooth.BluetoothDevice
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import kotlin.concurrent.write
 
 @SuppressLint("MissingPermission")
 class MainViewModel(application: Application) : AndroidViewModel(application) {
@@ -66,5 +69,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun reconnect() {
         bluetoothManager.reconnect()
+    }
+    fun manualMode(command: String){
+
+        bluetoothManager.sendCommand(command)
     }
 }
