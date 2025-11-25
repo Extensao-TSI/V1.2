@@ -18,11 +18,12 @@
 	<com.google.android.material.card.MaterialCardView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginBottom="10dp"
-		android:layout_marginTop="10dp"
-		app:cardCornerRadius="20dp"
-		app:cardElevation="8dp"
-		app:cardBackgroundColor="@color/dark_green_primary">
+		android:layout_marginBottom="24dp"
+		app:cardBackgroundColor="#FFFFFF"
+		app:cardCornerRadius="16dp"
+		app:cardElevation="6dp"
+		app:strokeColor="#E0E0E0"
+		app:strokeWidth="1dp">
 
 		<LinearLayout
 			android:layout_width="match_parent"
@@ -34,20 +35,20 @@
 				android:id="@+id/textViewTituloLista"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="Lista de Horários"
-				android:textSize="24sp"
-				android:textStyle="bold"
-				android:textColor="#FFFFFF"
 				android:layout_marginBottom="20dp"
 				android:gravity="center"
-				android:shadowColor="#000000"
+				android:shadowColor="#0D47A1"
 				android:shadowDx="2"
 				android:shadowDy="2"
-				android:shadowRadius="4"/>
+				android:shadowRadius="4"
+				android:text="Lista de Horários"
+				android:textColor="#1565C0"
+				android:textSize="24sp"
+				android:textStyle="bold" />
 
 			<com.google.android.material.button.MaterialButton
 				android:id="@+id/btnAdicionarHorario"
-				style="@style/AppButtonSecondary"
+				style="@style/AppButtonPrimary"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:text="Adicionar Novo Horário"
@@ -64,6 +65,19 @@
 				android:visibility="gone"
 				android:layout_marginTop="16dp"
 				android:layout_marginBottom="16dp"/>
+
+			<com.google.android.material.button.MaterialButton
+				android:id="@+id/btnLigarDesligar2"
+				style="@style/AppButtonLigar"
+				android:layout_width="match_parent"
+				android:layout_height="60dp"
+				android:text="Ligar"
+				android:textSize="18sp"
+				android:textStyle="bold"
+				app:icon="@drawable/ic_power_off"
+				app:iconGravity="textStart"
+				app:iconPadding="16dp"
+				app:iconSize="25dp" />
 
 		</LinearLayout>
 	</com.google.android.material.card.MaterialCardView>

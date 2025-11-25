@@ -10,20 +10,18 @@
 
 	<LinearLayout
 		android:id="@+id/linearLayout"
-		android:layout_width="379dp"
-		android:layout_height="708dp"
-		android:layout_marginStart="20dp"
-		android:layout_marginTop="20dp"
-		android:layout_marginEnd="20dp"
-		android:layout_marginBottom="20dp"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:layout_marginStart="12dp"
+		android:layout_marginTop="3dp"
+		android:layout_marginEnd="12dp"
+		android:layout_marginBottom="3dp"
 		android:orientation="vertical"
 		android:padding="0dp"
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="0.0"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent"
-		app:layout_constraintVertical_bias="0.0">
+		app:layout_constraintTop_toTopOf="parent">
 
 		<ImageView
 			android:id="@+id/logoBackground"
@@ -221,26 +219,13 @@
 
 			<com.google.android.material.button.MaterialButton
 				android:id="@+id/btnGerenciarHorario"
-				style="@style/AppButtonSecondary"
+				style="@style/AppButtonPrimary"
 				android:layout_width="match_parent"
 				android:layout_height="60dp"
-				android:text="GERENCIAR HORÁRIOS"
+				android:text="GERENCIAR"
 				android:textSize="18sp"
 				android:textStyle="bold"
 				app:icon="@drawable/ic_relogio"
-				app:iconGravity="textStart"
-				app:iconPadding="16dp"
-				app:iconSize="25dp" />
-
-			<com.google.android.material.button.MaterialButton
-				android:id="@+id/btnLigarDesligar"
-				style="@style/AppButtonLigar"
-				android:layout_width="match_parent"
-				android:layout_height="60dp"
-				android:text="Ligar"
-				android:textSize="18sp"
-				android:textStyle="bold"
-				app:icon="@drawable/ic_power_off"
 				app:iconGravity="textStart"
 				app:iconPadding="16dp"
 				app:iconSize="25dp" />
@@ -252,7 +237,7 @@
 			android:id="@+id/textView3"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="1dp"
+			android:layout_marginTop="25dp"
 			android:gravity="center"
 			android:text="@string/sobre"
 			android:textColor="#2929F6"

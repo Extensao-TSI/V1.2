@@ -2,11 +2,13 @@ package com.example.extensaotelas
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.Job
@@ -19,6 +21,7 @@ class ListaHorariosActivity : ComponentActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: HorarioAdapter
     private var scheduleList = mutableListOf<Schedule>()
+    private lateinit var btnLigaDesliga: MaterialButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +31,41 @@ class ListaHorariosActivity : ComponentActivity() {
 
         findViewById<Button>(R.id.btnAdicionarHorario).setOnClickListener {
             startActivity(android.content.Intent(this, AdicionarHorarioActivity::class.java))
+        }
+        btnLigaDesliga = findViewById<MaterialButton>(R.id.btnLigarDesligar)
+        findViewById<MaterialButton>(R.id.btnBluetooth).setOnClickListener {
+            handleBluetoothConnection()
+            if (viewModel.connectionStatus.value == ConnectionStatus.CONNECTED) {
+                // Verifica o texto atual para saber qual ação tomar
+                val isCurrentlyOn = btnLigaDesliga.text.toString().equals("DESLIGAR", ignoreCase = true)
+
+                if (isCurrentlyOn) {
+                    // Se o texto é "DESLIGAR", significa que o modo manual está ativo. Vamos desativá-lo.
+                    viewModel.manualMode("A") // Envia comando para desativar (Modo Automático)
+                    btnLigaDesliga.text = "LIGAR"
+                    // Você pode querer aplicar um estilo diferente aqui se necessário
+                    Toast.makeText(this, "Modo manual desativado.", Toast.LENGTH_SHORT).show()
+                } else {
+                    // Se o texto é "LIGAR", significa que o modo manual está inativo. Vamos ativá-lo.
+                    viewModel.manualMode("M") // Envia comando para ativar (Modo Manual)
+                    btnLigaDesliga.text = "DESLIGAR"
+                    // Você pode querer aplicar um estilo diferente aqui se necessário
+                    Toast.makeText(this, "Modo manual ativado.", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                // Caso não haja conexão Bluetooth
+                Toast.makeText(this, "Conecte-se ao Bluetooth para usar o modo manual.", Toast.LENGTH_SHORT).show()
+            }
+        }
+        findViewById<MaterialButton>(R.id.btnLigarDesligar).setOnClickListener {
+            if (viewModel.connectionStatus.value == ConnectionStatus.CONNECTED) {
+                btnLigaDesliga.text = "DESLIGAR"
+                btnLigaDesliga.setTextAppearance(R.style.AppButtonDesligar)
+
+            } else {
+
+                Toast.makeText(this, "Você precisa estar conectado para Ligar/Desligar", Toast.LENGTH_SHORT).show()
+            }
         }
 
         observeSchedules()
