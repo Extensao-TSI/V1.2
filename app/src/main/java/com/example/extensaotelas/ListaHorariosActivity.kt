@@ -33,38 +33,26 @@ class ListaHorariosActivity : ComponentActivity() {
             startActivity(android.content.Intent(this, AdicionarHorarioActivity::class.java))
         }
         btnLigaDesliga = findViewById<MaterialButton>(R.id.btnLigarDesligar)
-        findViewById<MaterialButton>(R.id.btnBluetooth).setOnClickListener {
-            handleBluetoothConnection()
+        btnLigaDesliga.setOnClickListener {
             if (viewModel.connectionStatus.value == ConnectionStatus.CONNECTED) {
-                // Verifica o texto atual para saber qual ação tomar
-                val isCurrentlyOn = btnLigaDesliga.text.toString().equals("DESLIGAR", ignoreCase = true)
-
-                if (isCurrentlyOn) {
-                    // Se o texto é "DESLIGAR", significa que o modo manual está ativo. Vamos desativá-lo.
-                    viewModel.manualMode("A") // Envia comando para desativar (Modo Automático)
-                    btnLigaDesliga.text = "LIGAR"
-                    // Você pode querer aplicar um estilo diferente aqui se necessário
-                    Toast.makeText(this, "Modo manual desativado.", Toast.LENGTH_SHORT).show()
-                } else {
-                    // Se o texto é "LIGAR", significa que o modo manual está inativo. Vamos ativá-lo.
-                    viewModel.manualMode("M") // Envia comando para ativar (Modo Manual)
-                    btnLigaDesliga.text = "DESLIGAR"
-                    // Você pode querer aplicar um estilo diferente aqui se necessário
-                    Toast.makeText(this, "Modo manual ativado.", Toast.LENGTH_SHORT).show()
-                }
+                viewModel.toggleManualMode() // Apenas isso!
             } else {
-                // Caso não haja conexão Bluetooth
                 Toast.makeText(this, "Conecte-se ao Bluetooth para usar o modo manual.", Toast.LENGTH_SHORT).show()
             }
         }
-        findViewById<MaterialButton>(R.id.btnLigarDesligar).setOnClickListener {
-            if (viewModel.connectionStatus.value == ConnectionStatus.CONNECTED) {
-                btnLigaDesliga.text = "DESLIGAR"
-                btnLigaDesliga.setTextAppearance(R.style.AppButtonDesligar)
 
-            } else {
-
-                Toast.makeText(this, "Você precisa estar conectado para Ligar/Desligar", Toast.LENGTH_SHORT).show()
+        // 2. A UI (botão) reage às mudanças de estado do ViewModel
+        lifecycleScope.launch {
+            viewModel.isManualModeActive.collect { isActive ->
+                if (isActive) {
+                    btnLigaDesliga.text = "DESLIGAR"
+                    // Opcional: Mudar o estilo se tiver
+                    // btnLigaDesliga.setTextAppearance(R.style.AppButtonDesligar)
+                } else {
+                    btnLigaDesliga.text = "LIGAR"
+                    // Opcional: Mudar o estilo se tiver
+                    // btnLigaDesliga.setTextAppearance(R.style.AppButtonLigar)
+                }
             }
         }
 

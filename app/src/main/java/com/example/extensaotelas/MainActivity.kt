@@ -60,40 +60,8 @@ class MainActivity : ComponentActivity() {
 			}
 		}
 
-		btnLigaDesliga = findViewById<MaterialButton>(R.id.btnLigarDesligar)
 		findViewById<MaterialButton>(R.id.btnBluetooth).setOnClickListener {
 			handleBluetoothConnection()
-			if (viewModel.connectionStatus.value == ConnectionStatus.CONNECTED) {
-				// Verifica o texto atual para saber qual ação tomar
-				val isCurrentlyOn = btnLigaDesliga.text.toString().equals("DESLIGAR", ignoreCase = true)
-
-				if (isCurrentlyOn) {
-					// Se o texto é "DESLIGAR", significa que o modo manual está ativo. Vamos desativá-lo.
-					viewModel.manualMode("A") // Envia comando para desativar (Modo Automático)
-					btnLigaDesliga.text = "LIGAR"
-					// Você pode querer aplicar um estilo diferente aqui se necessário
-					Toast.makeText(this, "Modo manual desativado.", Toast.LENGTH_SHORT).show()
-				} else {
-					// Se o texto é "LIGAR", significa que o modo manual está inativo. Vamos ativá-lo.
-					viewModel.manualMode("M") // Envia comando para ativar (Modo Manual)
-					btnLigaDesliga.text = "DESLIGAR"
-					// Você pode querer aplicar um estilo diferente aqui se necessário
-					Toast.makeText(this, "Modo manual ativado.", Toast.LENGTH_SHORT).show()
-				}
-			} else {
-				// Caso não haja conexão Bluetooth
-				Toast.makeText(this, "Conecte-se ao Bluetooth para usar o modo manual.", Toast.LENGTH_SHORT).show()
-			}
-		}
-		findViewById<MaterialButton>(R.id.btnLigarDesligar).setOnClickListener {
-			if (viewModel.connectionStatus.value == ConnectionStatus.CONNECTED) {
-				btnLigaDesliga.text = "DESLIGAR"
-				btnLigaDesliga.setTextAppearance(R.style.AppButtonDesligar)
-
-			} else {
-
-				Toast.makeText(this, "Você precisa estar conectado para Ligar/Desligar", Toast.LENGTH_SHORT).show()
-			}
 		}
 		val tvSobre = findViewById<TextView>(R.id.textView3)
 		tvSobre.setOnClickListener {

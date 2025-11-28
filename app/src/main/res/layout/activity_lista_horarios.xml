@@ -67,7 +67,7 @@
 				android:layout_marginBottom="16dp"/>
 
 			<com.google.android.material.button.MaterialButton
-				android:id="@+id/btnLigarDesligar2"
+				android:id="@+id/btnLigarDesligar"
 				style="@style/AppButtonLigar"
 				android:layout_width="match_parent"
 				android:layout_height="60dp"

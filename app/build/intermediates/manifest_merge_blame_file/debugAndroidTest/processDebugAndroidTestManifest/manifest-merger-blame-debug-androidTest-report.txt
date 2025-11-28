@@ -3,24 +3,24 @@
 3    package="com.example.extensaotelas.test" >
 4
 5    <uses-sdk
-5-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest598285547460023543.xml:5:5-74
+5-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest16933732739176317554.xml:5:5-74
 6        android:minSdkVersion="30"
-6-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest598285547460023543.xml:5:15-41
+6-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest16933732739176317554.xml:5:15-41
 7        android:targetSdkVersion="35" />
-7-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest598285547460023543.xml:5:42-71
+7-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest16933732739176317554.xml:5:42-71
 8
 9    <instrumentation
-9-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest598285547460023543.xml:11:5-15:75
+9-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest16933732739176317554.xml:11:5-15:75
 10        android:name="androidx.test.runner.AndroidJUnitRunner"
-10-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest598285547460023543.xml:11:22-76
+10-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest16933732739176317554.xml:11:22-76
 11        android:functionalTest="false"
-11-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest598285547460023543.xml:14:22-52
+11-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest16933732739176317554.xml:14:22-52
 12        android:handleProfiling="false"
-12-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest598285547460023543.xml:13:22-53
+12-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest16933732739176317554.xml:13:22-53
 13        android:label="Tests for com.example.extensaotelas"
-13-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest598285547460023543.xml:15:22-73
+13-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest16933732739176317554.xml:15:22-73
 14        android:targetPackage="com.example.extensaotelas" />
-14-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest598285547460023543.xml:12:22-71
+14-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest16933732739176317554.xml:12:22-71
 15
 16    <uses-permission android:name="android.permission.REORDER_TASKS" />
 16-->[androidx.test:core:1.6.1] C:\Users\2406499\.gradle\caches\8.11.1\transforms\eecc8c558702f06a8fbe20ab1fa2ccb1\transformed\core-1.6.1\AndroidManifest.xml:24:5-72
@@ -40,12 +40,12 @@
 22    </queries>
 23
 24    <application
-24-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest598285547460023543.xml:7:5-9:19
+24-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest16933732739176317554.xml:7:5-9:19
 25        android:debuggable="true"
 26        android:extractNativeLibs="false" >
 27        <uses-library android:name="android.test.runner" />
-27-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest598285547460023543.xml:8:9-60
-27-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest598285547460023543.xml:8:23-57
+27-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest16933732739176317554.xml:8:9-60
+27-->D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest16933732739176317554.xml:8:23-57
 28
 29        <activity
 29-->[androidx.test:core:1.6.1] C:\Users\2406499\.gradle\caches\8.11.1\transforms\eecc8c558702f06a8fbe20ab1fa2ccb1\transformed\core-1.6.1\AndroidManifest.xml:27:9-34:20

@@ -19,10 +19,11 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:cardBackgroundColor="@color/dark_green_primary"
         app:cardCornerRadius="20dp"
-        app:cardElevation="8dp">
+        app:cardElevation="8dp"
+        android:layout_marginTop="10dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:strokeColor="#E0E0E0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,18 +37,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:gravity="center"
-                android:shadowColor="#000000"
+                android:textStyle="bold"
+                android:textColor="#1565C0"
+                android:shadowColor="#0D47A1"
                 android:shadowDx="2"
                 android:shadowDy="2"
                 android:shadowRadius="4"
                 android:text="Adicionar Horário"
-                android:textColor="#FFFFFF"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textSize="24sp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnHorarioInicial"
-                style="@style/AppButtonSecondary"
+                style="@style/AppButtonPrimary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
@@ -55,7 +56,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnHorarioFinal"
-                style="@style/AppButtonSecondary"
+                style="@style/AppButtonPrimary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
@@ -67,7 +68,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:text="Dias da semana"
-                android:textColor="#FFFFFF"
+                android:textColor="#0D47A1"
+                android:textSize="20dp"
                 android:textStyle="bold" />
 
             <LinearLayout
