@@ -42,13 +42,6 @@ id cbSab
 id cbSeg
 id cbSex
 id cbTer
-id edDom
-id edQua
-id edQui
-id edSab
-id edSeg
-id edSex
-id edTer
 id linearLayout
 id logoBackground
 id logoBackground2

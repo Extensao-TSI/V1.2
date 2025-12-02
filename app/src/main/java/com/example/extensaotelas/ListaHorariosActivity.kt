@@ -35,24 +35,18 @@ class ListaHorariosActivity : ComponentActivity() {
         btnLigaDesliga = findViewById<MaterialButton>(R.id.btnLigarDesligar)
         btnLigaDesliga.setOnClickListener {
             if (viewModel.connectionStatus.value == ConnectionStatus.CONNECTED) {
-                viewModel.toggleManualMode() // Apenas isso!
+                viewModel.toggleManualMode()
+                lifecycleScope.launch {
+                    viewModel.isManualModeActive.collect { isActive ->
+                        if (isActive) {
+                            btnLigaDesliga.text = "DESLIGAR"
+                        } else {
+                            btnLigaDesliga.text = "LIGAR"
+                        }
+                    }
+                }
             } else {
                 Toast.makeText(this, "Conecte-se ao Bluetooth para usar o modo manual.", Toast.LENGTH_SHORT).show()
-            }
-        }
-
-        // 2. A UI (botão) reage às mudanças de estado do ViewModel
-        lifecycleScope.launch {
-            viewModel.isManualModeActive.collect { isActive ->
-                if (isActive) {
-                    btnLigaDesliga.text = "DESLIGAR"
-                    // Opcional: Mudar o estilo se tiver
-                    // btnLigaDesliga.setTextAppearance(R.style.AppButtonDesligar)
-                } else {
-                    btnLigaDesliga.text = "LIGAR"
-                    // Opcional: Mudar o estilo se tiver
-                    // btnLigaDesliga.setTextAppearance(R.style.AppButtonLigar)
-                }
             }
         }
 

@@ -84,14 +84,14 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/edDom"
+                        android:id="@+id/cbDom"
                         style="@style/Days"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Domingo" />
 
                     <CheckBox
-                        android:id="@+id/edSeg"
+                        android:id="@+id/cbSeg"
                         style="@style/Days"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
                         android:text="Segunda" />
 
                     <CheckBox
-                        android:id="@+id/edTer"
+                        android:id="@+id/cbTer"
                         style="@style/Days"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -114,14 +114,14 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/edQua"
+                        android:id="@+id/cbQua"
                         style="@style/Days"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Quarta" />
 
                     <CheckBox
-                        android:id="@+id/edQui"
+                        android:id="@+id/cbQui"
                         style="@style/Days"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -129,7 +129,7 @@
                         android:text="Quinta" />
 
                     <CheckBox
-                        android:id="@+id/edSex"
+                        android:id="@+id/cbSex"
                         style="@style/Days"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -144,7 +144,7 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/edSab"
+                        android:id="@+id/cbSab"
                         style="@style/Days"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

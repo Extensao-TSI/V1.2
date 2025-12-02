@@ -3320,13 +3320,6 @@ id easeIn
 id easeInOut
 id easeOut
 id east
-id edDom
-id edQua
-id edQui
-id edSab
-id edSeg
-id edSex
-id edTer
 id edge
 id edit_query
 id edit_text_id

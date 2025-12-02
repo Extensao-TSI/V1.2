@@ -88,10 +88,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         // Envia o comando correto baseado no novo estado
         if (newState) {
             // Se o novo estado é ATIVO, envia "M"
-            bluetoothManager.sendCommand("M")
+            bluetoothManager.activeManualMode()
         } else {
             // Se o novo estado é INATIVO, envia "A"
-            bluetoothManager.sendCommand("A")
+            bluetoothManager.disableManualMode()
         }
     }
 }
