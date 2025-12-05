@@ -85,10 +85,8 @@ class EditarHorarioActivity : AppCompatActivity() {
                 minutosFinal,
                 diasFlags
             )
-            Log.e("Schedule", "onCreate: $schedule")
 
             viewModel.saveSchedule(schedule)
-            Log.e("STATUS", "200:OK")
             Toast.makeText(this, "Atualizado no Arduino", Toast.LENGTH_SHORT).show()
             finish()
         }
