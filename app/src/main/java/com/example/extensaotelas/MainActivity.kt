@@ -70,7 +70,7 @@ class MainActivity : ComponentActivity() {
 				.setMessage(
 					"Coordenador do Projeto: Leonardo Lachi Manetti\n" +
 					"Professores Orientadores: Jonathas Leontino Medina, Eder de Souza Rodrigues\n" +
-					"Nomes dos Estudantes: João Brito Fachineli Brito"
+					"Nomes dos Estudantes: João Brito Fachineli Brito, "
 				)
 				.setPositiveButton("OK", null)
 				.show()
