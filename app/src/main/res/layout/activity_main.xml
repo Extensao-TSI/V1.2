@@ -29,7 +29,7 @@
 			android:layout_height="65dp"
 			android:alpha="0.8"
 			android:scaleType="centerInside"
-			android:src="@drawable/Logo" />
+			android:src="@drawable/logo" />
 
 		<com.google.android.material.card.MaterialCardView
 			android:layout_width="match_parent"
@@ -233,15 +233,18 @@
 
 		</LinearLayout>
 
-		<TextView
-			android:id="@+id/textView3"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="25dp"
-			android:gravity="center"
-			android:text="@string/sobre"
-			android:textColor="#2929F6"
-			android:textSize="18sp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSobre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/sobre"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            />
 
-	</LinearLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,7 @@
         android:layout_height="65dp"
         android:alpha="0.8"
         android:scaleType="centerInside"
-        android:src="@drawable/Logo" />
+        android:src="@drawable/logo" />
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"

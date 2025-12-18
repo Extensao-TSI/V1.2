@@ -9,6 +9,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -63,23 +64,29 @@ class MainActivity : ComponentActivity() {
 		findViewById<MaterialButton>(R.id.btnBluetooth).setOnClickListener {
 			handleBluetoothConnection()
 		}
-		val tvSobre = findViewById<TextView>(R.id.textView3)
+		val tvSobre = findViewById<Button>(R.id.btnSobre)
 		tvSobre.setOnClickListener {
 			AlertDialog.Builder(this)
 				.setTitle("Sobre o Projeto")
 				.setMessage(
 					"Coordenador do Projeto: Leonardo Lachi Manetti\n" +
 					"Professores Orientadores: Jonathas Leontino Medina, Eder de Souza Rodrigues\n" +
-					"Nomes dos Estudantes: João Brito Fachineli Brito, "
+					"Nomes dos Estudantes: " +
+                            "Gabriel Hideki Maekawa\n" +
+                            "Luís César Ramires Bezerra \n" +
+                            "Fillipe Coppes Furtado\n" +
+                            "Isaque Melo de Paula \n" +
+                            "João Pedro Fachineli Brito\n" +
+                            "Pedro Henrique Pereira de Matos \n" +
+                            "Marcos da Rosa Sotomaior \n" +
+                            "Vitor Hugo Ferreira Menoni\n"
+
 				)
 				.setPositiveButton("OK", null)
 				.show()
 		}
 	}
 
-	// Dentro de MainActivity.kt
-
-	// Dentro de MainActivity.kt
 
 	private fun observeViewModel() {
 		lifecycleScope.launch {
@@ -91,11 +98,8 @@ class MainActivity : ComponentActivity() {
 						Toast.makeText(this@MainActivity, "Conectado. Sincronizando horário...", Toast.LENGTH_SHORT).show()
 						viewModel.syncRtc()
 
-						// --- INÍCIO DA CORREÇÃO ---
-						// REMOVEMOS COMPLETAMENTE O statusPollJob DAQUI
 						// O Arduino já envia os dados automaticamente, não precisamos de os pedir.
 						statusPollJob?.cancel()
-						// --- FIM DA CORREÇÃO ---
 					}
 					ConnectionStatus.DISCONNECTED -> {
 						textViewStatus.text = "Desconectado"
