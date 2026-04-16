@@ -5,134 +5,142 @@
 	android:layout_height="match_parent"
 	android:orientation="vertical"
 	android:background="@drawable/gradient_background"
+	android:gravity="center"
 	android:padding="16dp">
 
-	<ImageView
-		android:id="@+id/logoBackground3"
-		android:layout_width="match_parent"
-		android:layout_height="65dp"
-		android:alpha="0.8"
-		android:scaleType="centerInside"
-		android:src="@drawable/logo"/>
-
-	<com.google.android.material.card.MaterialCardView
+	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		app:cardCornerRadius="20dp"
-		app:cardElevation="8dp"
-		android:layout_marginTop="10dp"
-		app:cardBackgroundColor="#FFFFFF"
-		app:strokeColor="#E0E0E0">
+		android:orientation="vertical"
+		android:gravity="center_horizontal">
 
-		<LinearLayout
+		<ImageView
+			android:id="@+id/logoBackground3"
+			android:layout_width="match_parent"
+			android:layout_height="65dp"
+			android:alpha="0.8"
+			android:scaleType="centerInside"
+			android:src="@drawable/logo"/>
+
+		<com.google.android.material.card.MaterialCardView
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:orientation="vertical"
-			android:padding="20dp">
-
-			<TextView
-				android:id="@+id/textViewTituloEditar"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="Editar Horário"
-				android:textSize="24sp"
-				android:textStyle="bold"
-				android:textColor="#1565C0"
-				android:layout_marginBottom="24dp"
-				android:gravity="center"
-				android:shadowColor="#0D47A1"
-				android:shadowDx="2"
-				android:shadowDy="2"
-				android:shadowRadius="4"/>
-
-			<com.google.android.material.button.MaterialButton
-				android:id="@+id/btnEditarHorarioInicial"
-				style="@style/AppButtonPrimary"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="Editar Horário Inicial"
-				android:layout_marginBottom="16dp"/>
-
-			<com.google.android.material.button.MaterialButton
-				android:id="@+id/btnEditarHorarioFinal"
-				style="@style/AppButtonPrimary"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="Editar Horário Final"
-				android:layout_marginBottom="24dp"/>
+			app:cardCornerRadius="20dp"
+			app:cardElevation="8dp"
+			android:layout_marginTop="10dp"
+			app:cardBackgroundColor="#FFFFFF"
+			app:strokeColor="#E0E0E0">
 
 			<LinearLayout
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_marginBottom="16dp"
-				android:gravity="center_horizontal"
-				android:orientation="horizontal">
+				android:orientation="vertical"
+				android:padding="20dp">
 
-				<CheckBox
-					android:id="@+id/cbDom"
-					style="@style/Days"
+				<TextView
+					android:id="@+id/textViewTituloEditar"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:text="D" />
+					android:text="Editar Horário"
+					android:textSize="24sp"
+					android:textStyle="bold"
+					android:textColor="#1565C0"
+					android:layout_marginBottom="24dp"
+					android:gravity="center"
+					android:shadowColor="#0D47A1"
+					android:shadowDx="2"
+					android:shadowDy="2"
+					android:shadowRadius="4"/>
 
-				<CheckBox
-					android:id="@+id/cbSeg"
-					style="@style/Days"
-					android:layout_width="wrap_content"
+				<com.google.android.material.button.MaterialButton
+					android:id="@+id/btnEditarHorarioInicial"
+					style="@style/AppButtonPrimary"
+					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="5dp"
-					android:text="S" />
+					android:text="Editar Horário Inicial"
+					android:layout_marginBottom="16dp"/>
 
-				<CheckBox
-					android:id="@+id/cbTer"
-					style="@style/Days"
-					android:layout_width="wrap_content"
+				<com.google.android.material.button.MaterialButton
+					android:id="@+id/btnEditarHorarioFinal"
+					style="@style/AppButtonPrimary"
+					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="5dp"
-					android:text="T" />
+					android:text="Editar Horário Final"
+					android:layout_marginBottom="24dp"/>
 
-				<CheckBox
-					android:id="@+id/cbQua"
-					style="@style/Days"
-					android:layout_width="wrap_content"
+				<LinearLayout
+					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="5dp"
-					android:text="Q" />
+					android:layout_marginBottom="16dp"
+					android:gravity="center_horizontal"
+					android:orientation="horizontal">
 
-				<CheckBox
-					android:id="@+id/cbQui"
-					style="@style/Days"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginStart="5dp"
-					android:text="Q"
-					/>
+					<CheckBox
+						android:id="@+id/cbDom"
+						style="@style/Days"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="D" />
 
-				<CheckBox
-					android:id="@+id/cbSex"
-					style="@style/Days"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginStart="5dp"
-					android:text="S" />
+					<CheckBox
+						android:id="@+id/cbSeg"
+						style="@style/Days"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginStart="5dp"
+						android:text="S" />
 
-				<CheckBox
-					android:id="@+id/cbSab"
-					style="@style/Days"
-					android:layout_width="wrap_content"
+					<CheckBox
+						android:id="@+id/cbTer"
+						style="@style/Days"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginStart="5dp"
+						android:text="T" />
+
+					<CheckBox
+						android:id="@+id/cbQua"
+						style="@style/Days"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginStart="5dp"
+						android:text="Q" />
+
+					<CheckBox
+						android:id="@+id/cbQui"
+						style="@style/Days"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginStart="5dp"
+						android:text="Q" />
+
+					<CheckBox
+						android:id="@+id/cbSex"
+						style="@style/Days"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginStart="5dp"
+						android:text="S" />
+
+					<CheckBox
+						android:id="@+id/cbSab"
+						style="@style/Days"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginStart="5dp"
+						android:text="S" />
+				</LinearLayout>
+
+				<com.google.android.material.button.MaterialButton
+					android:id="@+id/btnSalvarEdicaoHorario"
+					style="@style/AppButtonLigar"
+					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="5dp"
-					android:text="S" />
+					android:text="Salvar Alterações"/>
+
 			</LinearLayout>
+		</com.google.android.material.card.MaterialCardView>
 
-			<com.google.android.material.button.MaterialButton
-				android:id="@+id/btnSalvarEdicaoHorario"
-				style="@style/AppButtonLigar"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="Salvar Alterações"/>
-
-		</LinearLayout>
-	</com.google.android.material.card.MaterialCardView>
+	</LinearLayout>
 
 </LinearLayout> 

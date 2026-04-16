@@ -71,7 +71,6 @@
 				style="@style/AppButtonLigar"
 				android:layout_width="match_parent"
 				android:layout_height="60dp"
-				android:text="Ligar"
 				android:textSize="18sp"
 				android:textStyle="bold"
 				app:icon="@drawable/ic_power_off"

@@ -39,9 +39,9 @@ class ListaHorariosActivity : ComponentActivity() {
                 lifecycleScope.launch {
                     viewModel.isManualModeActive.collect { isActive ->
                         if (isActive) {
-                            btnLigaDesliga.text = "DESLIGAR"
+                            btnLigaDesliga.setBackgroundResource(R.style.AppButtonDesligar)
                         } else {
-                            btnLigaDesliga.text = "LIGAR"
+                            btnLigaDesliga.setBackgroundResource(R.style.AppButtonLigar)
                         }
                     }
                 }
