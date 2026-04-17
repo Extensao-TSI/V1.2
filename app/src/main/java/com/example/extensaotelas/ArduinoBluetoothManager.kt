@@ -40,8 +40,8 @@ class ArduinoBluetoothManager private constructor(context: Context) {
     private var inputStream: InputStream? = null
     private var outputStream: OutputStream? = null
 
-    private val job = SupervisorJob()
-    private val scope = CoroutineScope(Dispatchers.IO + job)
+    private val scope = CoroutineScope(Dispatchers.IO + SupervisorJob())
+    private var listenJob: Job? = null
 
     private val _sensorData = MutableStateFlow<SensorData?>(null)
     val sensorData = _sensorData.asStateFlow()
@@ -93,7 +93,8 @@ class ArduinoBluetoothManager private constructor(context: Context) {
     // Dentro de ArduinoBluetoothManager.kt
 
     private fun startListening() {
-        scope.launch {
+        listenJob?.cancel()
+        listenJob = scope.launch {
             val reader = inputStream?.bufferedReader()
             while (isActive) {
                 try {
@@ -222,10 +223,15 @@ class ArduinoBluetoothManager private constructor(context: Context) {
 
     fun disconnect() {
         try {
+            listenJob?.cancel()
             socket?.close()
         } catch (e: Exception) { /* Ignore */ }
+        
+        socket = null
+        inputStream = null
+        outputStream = null
+        
         _connectionStatus.value = ConnectionStatus.DISCONNECTED
-        job.cancel()
     }
 
     fun requestScheduleList() {
