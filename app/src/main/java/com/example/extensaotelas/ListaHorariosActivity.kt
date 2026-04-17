@@ -36,21 +36,27 @@ class ListaHorariosActivity : ComponentActivity() {
         btnLigaDesliga.setOnClickListener {
             if (viewModel.connectionStatus.value == ConnectionStatus.CONNECTED) {
                 viewModel.toggleManualMode()
-                lifecycleScope.launch {
-                    viewModel.isManualModeActive.collect { isActive ->
-                        if (isActive) {
-                            btnLigaDesliga.setBackgroundResource(R.style.AppButtonDesligar)
-                        } else {
-                            btnLigaDesliga.setBackgroundResource(R.style.AppButtonLigar)
-                        }
-                    }
-                }
             } else {
                 Toast.makeText(this, "Conecte-se ao Bluetooth para usar o modo manual.", Toast.LENGTH_SHORT).show()
             }
         }
 
         observeSchedules()
+        observeManualMode()
+    }
+
+    private fun observeManualMode() {
+        lifecycleScope.launch {
+            viewModel.isManualModeActive.collectLatest { isActive ->
+                if (isActive) {
+                    btnLigaDesliga.text = "DESLIGAR"
+                    btnLigaDesliga.backgroundTintList = android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#FF0000"))
+                } else {
+                    btnLigaDesliga.text = "LIGAR"
+                    btnLigaDesliga.backgroundTintList = android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#008000"))
+                }
+            }
+        }
     }
 
     override fun onResume() {

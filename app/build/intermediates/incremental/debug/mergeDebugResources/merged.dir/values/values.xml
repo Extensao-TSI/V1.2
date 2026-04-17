@@ -1987,7 +1987,7 @@
     <string name="abc_shareactionprovider_share_with_application">Share with <ns2:g example="Mail" id="application_name">%s</ns2:g></string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="androidx_startup" translatable="false">androidx.startup</string>
-    <string name="app_name">ExtensaoTelas</string>
+    <string name="app_name">TYKY</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
     <string name="bottom_sheet_behavior" translatable="false">com.google.android.material.bottomsheet.BottomSheetBehavior</string>
     <string description="A description of an accessibility action to collapse the bottom sheet [CHAR LIMIT=NONE]" name="bottomsheet_action_collapse">Collapse the bottom sheet</string>
@@ -2180,6 +2180,7 @@
 		<item name="android:textStyle">bold</item>
 		<item name="android:textColor">#FFFFFF</item>
 		<item name="android:textSize">18sp</item>
+		<item name="android:text">Desligar</item>
 		<item name="backgroundTint">#FF0000</item>
 		<item name="cornerRadius">14dp</item>
 		<item name="strokeColor">@color/black</item>
@@ -2192,6 +2193,7 @@
 		<item name="android:textStyle">bold</item>
 		<item name="android:textColor">#FFFFFF</item>
 		<item name="android:textSize">18sp</item>
+		<item name="android:text">Ligar</item>
 		<item name="backgroundTint">#008000</item>
 		<item name="cornerRadius">14dp</item>
 		<item name="strokeColor">#000000</item>
@@ -5624,18 +5626,17 @@
     <style name="Days">
 		<item name="android:textAllCaps">true</item>
 		<item name="android:textStyle">bold</item>
-		<item name="android:textColor">#0D47A1</item>
+		<item name="android:textColor">@color/day_selector_text</item>
 		<item name="android:textSize">15sp</item>
-		<item name="buttonTint">#0D47A1</item>
-		<item name="cornerRadius">5dp</item>
-		<item name="strokeColor">@color/black</item>
-		<item name="strokeWidth">1dp</item>
-		<item name="rippleColor">#201565C0</item>
-		<item name="iconTint">#0D47A1</item>
-		<item name="android:shadowColor">#201565C0</item>
-		<item name="android:shadowDx">2</item>
-		<item name="android:shadowDy">2</item>
-		<item name="android:shadowRadius">4</item>
+		<item name="android:gravity">center</item>
+		<item name="android:button">@null</item>
+		<item name="android:background">@drawable/bg_day_selector</item>
+		<item name="android:minWidth">44dp</item>
+		<item name="android:minHeight">44dp</item>
+		<item name="android:paddingStart">0dp</item>
+		<item name="android:paddingEnd">0dp</item>
+		<item name="android:paddingTop">0dp</item>
+		<item name="android:paddingBottom">0dp</item>
 	</style>
     <style name="MaterialAlertDialog.Material3" parent="MaterialAlertDialog.MaterialComponents">
     <item name="backgroundTint">@macro/m3_comp_dialog_container_color</item>
