@@ -31,11 +31,53 @@
 		<item name="android:textStyle">bold</item>
 		<item name="android:textColor">#FFFFFF</item>
 		<item name="android:textSize">18sp</item>
-		<item name="backgroundTint">#C0392B</item>
+		<item name="backgroundTint">#B80404</item>
 		<item name="cornerRadius">14dp</item>
-		<item name="strokeColor">#922B21</item>
+		<item name="strokeColor">@color/black</item>
 		<item name="strokeWidth">1dp</item>
 		<item name="rippleColor">#40FFFFFF</item>
 		<item name="iconTint">#FFFFFF</item>
 	</style>
-</resources> 
+	<style name="AppButtonLigar" parent="Widget.Material3.Button">
+		<item name="android:textAllCaps">true</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:textColor">#FFFFFF</item>
+		<item name="android:textSize">18sp</item>
+		<item name="android:text">Ligar</item>
+		<item name="backgroundTint">#008000</item>
+		<item name="cornerRadius">14dp</item>
+		<item name="strokeColor">#000000</item>
+		<item name="strokeWidth">1dp</item>
+		<item name="rippleColor">#40FFFFFF</item>
+		<item name="iconTint">#FFFFFF</item>
+	</style>
+	<style name="AppButtonDesligar" parent="Widget.Material3.Button">
+		<item name="android:textAllCaps">true</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:textColor">#FFFFFF</item>
+		<item name="android:textSize">18sp</item>
+		<item name="android:text">Desligar</item>
+		<item name="backgroundTint">#FF0000</item>
+		<item name="cornerRadius">14dp</item>
+		<item name="strokeColor">@color/black</item>
+		<item name="strokeWidth">1dp</item>
+		<item name="rippleColor">#40FFFFFF</item>
+		<item name="iconTint">#FFFFFF</item>
+	</style>
+	<style name="Days">
+		<item name="android:textAllCaps">true</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:textColor">@color/day_selector_text</item>
+		<item name="android:textSize">15sp</item>
+		<item name="android:gravity">center</item>
+		<item name="android:button">@null</item>
+		<item name="android:background">@drawable/bg_day_selector</item>
+		<item name="android:minWidth">44dp</item>
+		<item name="android:minHeight">44dp</item>
+		<item name="android:paddingStart">0dp</item>
+		<item name="android:paddingEnd">0dp</item>
+		<item name="android:paddingTop">0dp</item>
+		<item name="android:paddingBottom">0dp</item>
+	</style>
+
+</resources>

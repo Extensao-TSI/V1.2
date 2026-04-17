@@ -42,7 +42,7 @@ class HorarioAdapter(
             .filter { (schedule.daysFlags and it) != 0 }
             .joinToString(" ") { dayMap[it] ?: "" }
 
-        holder.textViewHorario.text = "Índice ${schedule.index} | $horaInicial - $horaFinal | $diasAtivos"
+        holder.textViewHorario.text = "$horaInicial - $horaFinal | $diasAtivos"
 
         holder.btnEditar.setOnClickListener { onEditar(schedule) }
         holder.btnExcluir.setOnClickListener { onExcluir(schedule) }

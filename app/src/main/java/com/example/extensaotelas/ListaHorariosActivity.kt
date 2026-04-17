@@ -2,11 +2,13 @@ package com.example.extensaotelas
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.Job
@@ -19,6 +21,7 @@ class ListaHorariosActivity : ComponentActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: HorarioAdapter
     private var scheduleList = mutableListOf<Schedule>()
+    private lateinit var btnLigaDesliga: MaterialButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +31,23 @@ class ListaHorariosActivity : ComponentActivity() {
 
         findViewById<Button>(R.id.btnAdicionarHorario).setOnClickListener {
             startActivity(android.content.Intent(this, AdicionarHorarioActivity::class.java))
+        }
+        btnLigaDesliga = findViewById<MaterialButton>(R.id.btnLigarDesligar)
+        btnLigaDesliga.setOnClickListener {
+            if (viewModel.connectionStatus.value == ConnectionStatus.CONNECTED) {
+                viewModel.toggleManualMode()
+                lifecycleScope.launch {
+                    viewModel.isManualModeActive.collect { isActive ->
+                        if (isActive) {
+                            btnLigaDesliga.setBackgroundResource(R.style.AppButtonDesligar)
+                        } else {
+                            btnLigaDesliga.setBackgroundResource(R.style.AppButtonLigar)
+                        }
+                    }
+                }
+            } else {
+                Toast.makeText(this, "Conecte-se ao Bluetooth para usar o modo manual.", Toast.LENGTH_SHORT).show()
+            }
         }
 
         observeSchedules()

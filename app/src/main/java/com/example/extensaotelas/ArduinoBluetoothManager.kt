@@ -294,4 +294,11 @@ class ArduinoBluetoothManager private constructor(context: Context) {
         val command = "U,$year,$month,$day,$hour,$minute,$second"
         sendCommand(command)
     }
+
+    fun activeManualMode(){
+        sendCommand("M")
+    }
+    fun disableManualMode(){
+        sendCommand("A")
+    }
 }

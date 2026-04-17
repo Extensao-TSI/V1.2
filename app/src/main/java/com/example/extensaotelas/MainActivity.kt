@@ -5,12 +5,11 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
-import android.bluetooth.BluetoothManager
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -19,34 +18,23 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.isActive
 import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import androidx.activity.result.contract.ActivityResultContracts
 
 @SuppressLint("MissingPermission")
 class MainActivity : ComponentActivity() {
 
 	private val viewModel: MainViewModel by viewModels()
-	private var bluetoothAdapter: BluetoothAdapter? = null
+	private lateinit var bluetoothAdapter: BluetoothAdapter
 	private lateinit var textViewStatus: TextView
 	private lateinit var txtTemperaturaValor: TextView
 	private lateinit var txtUmidadeArValor: TextView
 	private lateinit var txtUmidadeSoloValor: TextView
 
 	private var statusPollJob: Job? = null
+	private lateinit var btnLigaDesliga: MaterialButton
 
-	private val requestPermissionLauncher = registerForActivityResult(
-		ActivityResultContracts.RequestMultiplePermissions()
-	) { permissions ->
-		if (permissions.entries.all { it.value }) {
-			iniciarConexaoBluetooth()
-		} else {
-			Toast.makeText(this, "Permissões necessárias não concedidas", Toast.LENGTH_SHORT).show()
-		}
-	}
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -57,12 +45,11 @@ class MainActivity : ComponentActivity() {
 		txtUmidadeArValor = findViewById(R.id.txtUmidadeArValor)
 		txtUmidadeSoloValor = findViewById(R.id.txtUmidadeSoloValor)
 
+
 		setupUI()
 		observeViewModel()
 
-		// Usar BluetoothManager.adapter em vez do deprecated getDefaultAdapter()
-		val bluetoothManager = getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
-		bluetoothAdapter = bluetoothManager.adapter
+		bluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
 	}
 
 	private fun setupUI() {
@@ -77,7 +64,29 @@ class MainActivity : ComponentActivity() {
 		findViewById<MaterialButton>(R.id.btnBluetooth).setOnClickListener {
 			handleBluetoothConnection()
 		}
+		val tvSobre = findViewById<Button>(R.id.btnSobre)
+		tvSobre.setOnClickListener {
+			AlertDialog.Builder(this)
+				.setTitle("Sobre o Projeto")
+				.setMessage(
+					"Coordenador do Projeto: Leonardo Lachi Manetti\n" +
+					"Professores Orientadores: Jonathas Leontino Medina, Eder de Souza Rodrigues\n" +
+					"Nomes dos Estudantes: " +
+                            "Gabriel Hideki Maekawa\n" +
+                            "Luís César Ramires Bezerra \n" +
+                            "Fillipe Coppes Furtado\n" +
+                            "Isaque Melo de Paula \n" +
+                            "João Pedro Fachineli Brito\n" +
+                            "Pedro Henrique Pereira de Matos \n" +
+                            "Marcos da Rosa Sotomaior \n" +
+                            "Vitor Hugo Ferreira Menoni\n"
+
+				)
+				.setPositiveButton("OK", null)
+				.show()
+		}
 	}
+
 
 	private fun observeViewModel() {
 		lifecycleScope.launch {
@@ -89,11 +98,8 @@ class MainActivity : ComponentActivity() {
 						Toast.makeText(this@MainActivity, "Conectado. Sincronizando horário...", Toast.LENGTH_SHORT).show()
 						viewModel.syncRtc()
 
-						// --- INÍCIO DA CORREÇÃO ---
-						// REMOVEMOS COMPLETAMENTE O statusPollJob DAQUI
 						// O Arduino já envia os dados automaticamente, não precisamos de os pedir.
 						statusPollJob?.cancel()
-						// --- FIM DA CORREÇÃO ---
 					}
 					ConnectionStatus.DISCONNECTED -> {
 						textViewStatus.text = "Desconectado"
@@ -124,64 +130,31 @@ class MainActivity : ComponentActivity() {
 	}
 
 	private fun handleBluetoothConnection() {
-		if (bluetoothAdapter == null) {
-			Toast.makeText(this, "Este dispositivo não suporta Bluetooth.", Toast.LENGTH_SHORT).show()
-			return
-		}
-
-		if (!checkPermissions()) {
-			return
-		}
-
-		iniciarConexaoBluetooth()
-	}
-
-	/**
-	 * Lógica de conexão Bluetooth extraída para método separado.
-	 * Chamada após permissões serem concedidas (diretamente ou via callback).
-	 */
-	private fun iniciarConexaoBluetooth() {
-		val adapter = bluetoothAdapter ?: return
-
-		if (!adapter.isEnabled) {
-			Toast.makeText(this, "Por favor, ative o Bluetooth.", Toast.LENGTH_SHORT).show()
-			return
-		}
-
-		// Cancelar discovery antes de listar/conectar — libera recursos da antena BT
-		adapter.cancelDiscovery()
-
-		val pairedDevices: Set<BluetoothDevice>? = adapter.bondedDevices
-		if (pairedDevices.isNullOrEmpty()) {
-			Toast.makeText(this, "Nenhum dispositivo pareado encontrado.", Toast.LENGTH_SHORT).show()
-			return
-		}
-
-		val deviceList = pairedDevices.map {
-			(it.name ?: "(Sem nome)") + "\n" + it.address to it
-		}.toTypedArray()
-
-		AlertDialog.Builder(this)
-			.setTitle("Escolha um dispositivo")
-			.setItems(deviceList.map { it.first }.toTypedArray()) { _, which ->
-				val device = deviceList[which].second
-				// Garantir que o discovery está cancelado antes de conectar
-				adapter.cancelDiscovery()
-				viewModel.connectToDevice(device)
+		if (checkPermissions()) {
+			if (!bluetoothAdapter.isEnabled) {
+				Toast.makeText(this, "Por favor, ative o Bluetooth.", Toast.LENGTH_SHORT).show()
+				return
 			}
-			.show()
+			val pairedDevices: Set<BluetoothDevice>? = bluetoothAdapter.bondedDevices
+			if (pairedDevices.isNullOrEmpty()) {
+				Toast.makeText(this, "Nenhum dispositivo pareado encontrado.", Toast.LENGTH_SHORT).show()
+				return
+			}
+
+			val deviceList = pairedDevices.map { it.name to it }.toTypedArray()
+			AlertDialog.Builder(this)
+				.setTitle("Escolha um dispositivo")
+				.setItems(deviceList.map { it.first }.toTypedArray()) { _, which ->
+					val device = deviceList[which].second
+					viewModel.connectToDevice(device)
+				}
+				.show()
+		}
 	}
 
 	private fun checkPermissions(): Boolean {
-		val requiredPermissions = mutableListOf(Manifest.permission.BLUETOOTH_CONNECT)
-
-		// BLUETOOTH_SCAN é necessário se quisermos fazer discovery no futuro
-		if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
-			requiredPermissions.add(Manifest.permission.BLUETOOTH_SCAN)
-		}
-
-		if (requiredPermissions.any { ContextCompat.checkSelfPermission(this, it) != PackageManager.PERMISSION_GRANTED }) {
-			requestPermissionLauncher.launch(requiredPermissions.toTypedArray())
+		if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+			ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.BLUETOOTH_CONNECT), 1001)
 			return false
 		}
 		return true

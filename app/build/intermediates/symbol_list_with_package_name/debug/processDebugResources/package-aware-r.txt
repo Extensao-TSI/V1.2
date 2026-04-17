@@ -1389,6 +1389,10 @@ color cardview_dark_background
 color cardview_light_background
 color cardview_shadow_end_color
 color cardview_shadow_start_color
+color dark_green_accent
+color dark_green_primary
+color dark_green_secondary
+color deep_green
 color design_bottom_navigation_shadow_color
 color design_box_stroke_color
 color design_dark_default_color_background
@@ -1435,6 +1439,7 @@ color error_color_material_dark
 color error_color_material_light
 color foreground_material_dark
 color foreground_material_light
+color forest_green
 color highlighted_text_material_dark
 color highlighted_text_material_light
 color m3_appbar_overlay_color
@@ -3026,6 +3031,8 @@ drawable ic_call_decline
 drawable ic_call_decline_low
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
+drawable ic_delete
+drawable ic_edit
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -3036,8 +3043,12 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_power_off
+drawable ic_power_on
 drawable ic_relogio
 drawable ic_search_black_24
+drawable ifms
+drawable ifms2
 drawable indeterminate_static
 drawable item_gradient
 drawable m3_avd_hide_password
@@ -3226,6 +3237,7 @@ id btnExcluir
 id btnGerenciarHorario
 id btnHorarioFinal
 id btnHorarioInicial
+id btnLigarDesligar
 id btnSalvarEdicaoHorario
 id btnSalvarHorario
 id btnToggle
@@ -3381,6 +3393,10 @@ id linear
 id linearLayout
 id listMode
 id list_item
+id logoBackground
+id logoBackground2
+id logoBackground3
+id logoBackground4
 id m3_side_sheet
 id main
 id marquee
@@ -3594,6 +3610,7 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView2
+id textView3
 id textViewHorario
 id textViewSemHorariosCadastrados
 id textViewTituloAdicionar
@@ -4026,6 +4043,7 @@ string searchview_clear_text_content_description
 string searchview_navigation_content_description
 string side_sheet_accessibility_pane_title
 string side_sheet_behavior
+string sobre
 string status_bar_notification_info_overflow
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
@@ -4039,6 +4057,8 @@ style Animation_Material3_SideSheetDialog_Left
 style Animation_Material3_SideSheetDialog_Right
 style Animation_MaterialComponents_BottomSheetDialog
 style AppButtonDanger
+style AppButtonDesligar
+style AppButtonLigar
 style AppButtonPrimary
 style AppButtonSecondary
 style Base_AlertDialog_AppCompat
@@ -4321,6 +4341,7 @@ style Base_Widget_MaterialComponents_TextView
 style CardView
 style CardView_Dark
 style CardView_Light
+style Days
 style MaterialAlertDialog_Material3
 style MaterialAlertDialog_Material3_Animation
 style MaterialAlertDialog_Material3_Body_Text

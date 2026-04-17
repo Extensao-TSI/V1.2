@@ -9,16 +9,17 @@
 	app:cardCornerRadius="16dp"
 	app:cardElevation="6dp"
 	app:cardBackgroundColor="#FFFFFF"
-	app:strokeColor="#E0E0E0"
-	app:strokeWidth="1dp">
+	app:strokeColor="#000000"
+	app:strokeWidth="2dp">
 
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:orientation="horizontal"
-		android:padding="16dp"
+		app:cardBackgroundColor="#FFFFFF"
+		app:strokeColor="#E0E0E0"
 		android:gravity="center_vertical"
-		android:background="@drawable/item_gradient">
+		android:orientation="horizontal"
+		android:padding="16dp">
 
 		<TextView
 			android:id="@+id/textViewHorario"
@@ -26,26 +27,32 @@
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
 			android:text="08:00 - 09:00"
-			android:textColor="#4A90E2"
-			android:textSize="18sp"
-			android:textStyle="bold"/>
+			android:textColor="#0D47A1"
+			android:textSize="20dp"
+			android:textStyle="bold"  />
 
 		<com.google.android.material.button.MaterialButton
 			android:id="@+id/btnEditar"
-			style="@style/AppButtonPrimary"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="Editar"
-			android:textSize="12sp"
-			android:layout_marginEnd="8dp"/>
+			style="@style/AppButtonLigar"
+			android:layout_width="50dp"
+			android:layout_height="45dp"
+			app:icon="@drawable/ic_edit"
+			app:iconSize="25dp"
+			app:iconGravity="top"
+			android:layout_margin="10px"
+			android:gravity="center"
+			/>
 
 		<com.google.android.material.button.MaterialButton
 			android:id="@+id/btnExcluir"
-			style="@style/AppButtonDanger"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="Excluir"
-			android:textSize="12sp"/>
+			style="@style/AppButtonDesligar"
+			android:layout_width="50dp"
+			android:layout_height="45dp"
+			app:icon="@drawable/ic_delete"
+			app:iconSize="25dp"
+			app:iconGravity="top"
+			android:layout_margin="10px"
+			android:gravity="center"/>
 
 		<com.google.android.material.materialswitch.MaterialSwitch
 			android:id="@+id/btnToggle"

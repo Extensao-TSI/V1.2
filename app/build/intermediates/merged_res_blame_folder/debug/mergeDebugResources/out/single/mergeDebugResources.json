@@ -8,12 +8,24 @@
         "source": "com.example.extensaotelas.app-main-44:/drawable/gradient_background.xml"
     },
     {
+        "merged": "com.example.extensaotelas.app-debug-42:/drawable-hdpi_ic_delete.png.flat",
+        "source": "com.example.extensaotelas.app-main-44:/drawable-hdpi/ic_delete.png"
+    },
+    {
         "merged": "com.example.extensaotelas.app-debug-42:/mipmap-hdpi_ic_launcher_round.webp.flat",
         "source": "com.example.extensaotelas.app-main-44:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
+        "merged": "com.example.extensaotelas.app-debug-42:/drawable-mdpi_ic_edit.png.flat",
+        "source": "com.example.extensaotelas.app-main-44:/drawable-mdpi/ic_edit.png"
+    },
+    {
         "merged": "com.example.extensaotelas.app-debug-42:/xml_backup_rules.xml.flat",
         "source": "com.example.extensaotelas.app-main-44:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.example.extensaotelas.app-debug-42:/drawable-hdpi_ic_edit.png.flat",
+        "source": "com.example.extensaotelas.app-main-44:/drawable-hdpi/ic_edit.png"
     },
     {
         "merged": "com.example.extensaotelas.app-debug-42:/drawable_ic_relogio.xml.flat",
@@ -22,6 +34,10 @@
     {
         "merged": "com.example.extensaotelas.app-debug-42:/mipmap-anydpi_ic_launcher_round.xml.flat",
         "source": "com.example.extensaotelas.app-main-44:/mipmap-anydpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.extensaotelas.app-debug-42:/drawable-anydpi_ic_edit.xml.flat",
+        "source": "com.example.extensaotelas.app-main-44:/drawable-anydpi/ic_edit.xml"
     },
     {
         "merged": "com.example.extensaotelas.app-debug-42:/drawable_ic_bluetooth.xml.flat",
@@ -36,12 +52,32 @@
         "source": "com.example.extensaotelas.app-main-44:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
+        "merged": "com.example.extensaotelas.app-debug-42:/drawable_ifms.png.flat",
+        "source": "com.example.extensaotelas.app-main-44:/drawable/ifms.png"
+    },
+    {
         "merged": "com.example.extensaotelas.app-debug-42:/layout_item_horario.xml.flat",
         "source": "com.example.extensaotelas.app-main-44:/layout/item_horario.xml"
     },
     {
+        "merged": "com.example.extensaotelas.app-debug-42:/drawable-xxhdpi_ic_delete.png.flat",
+        "source": "com.example.extensaotelas.app-main-44:/drawable-xxhdpi/ic_delete.png"
+    },
+    {
+        "merged": "com.example.extensaotelas.app-debug-42:/drawable-xxhdpi_ic_edit.png.flat",
+        "source": "com.example.extensaotelas.app-main-44:/drawable-xxhdpi/ic_edit.png"
+    },
+    {
+        "merged": "com.example.extensaotelas.app-debug-42:/drawable_ifms2.png.flat",
+        "source": "com.example.extensaotelas.app-main-44:/drawable/ifms2.png"
+    },
+    {
         "merged": "com.example.extensaotelas.app-debug-42:/drawable_temperature_gradient.xml.flat",
         "source": "com.example.extensaotelas.app-main-44:/drawable/temperature_gradient.xml"
+    },
+    {
+        "merged": "com.example.extensaotelas.app-debug-42:/drawable_ic_power_on.xml.flat",
+        "source": "com.example.extensaotelas.app-main-44:/drawable/ic_power_on.xml"
     },
     {
         "merged": "com.example.extensaotelas.app-debug-42:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
@@ -50,6 +86,10 @@
     {
         "merged": "com.example.extensaotelas.app-debug-42:/mipmap-anydpi_ic_launcher.xml.flat",
         "source": "com.example.extensaotelas.app-main-44:/mipmap-anydpi/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.extensaotelas.app-debug-42:/drawable-anydpi_ic_delete.xml.flat",
+        "source": "com.example.extensaotelas.app-main-44:/drawable-anydpi/ic_delete.xml"
     },
     {
         "merged": "com.example.extensaotelas.app-debug-42:/drawable_item_gradient.xml.flat",
@@ -68,6 +108,10 @@
         "source": "com.example.extensaotelas.app-main-44:/layout/activity_horario.xml"
     },
     {
+        "merged": "com.example.extensaotelas.app-debug-42:/drawable-xhdpi_ic_edit.png.flat",
+        "source": "com.example.extensaotelas.app-main-44:/drawable-xhdpi/ic_edit.png"
+    },
+    {
         "merged": "com.example.extensaotelas.app-debug-42:/layout_activity_lista_horarios.xml.flat",
         "source": "com.example.extensaotelas.app-main-44:/layout/activity_lista_horarios.xml"
     },
@@ -84,8 +128,16 @@
         "source": "com.example.extensaotelas.app-main-44:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
+        "merged": "com.example.extensaotelas.app-debug-42:/drawable_ic_power_off.xml.flat",
+        "source": "com.example.extensaotelas.app-main-44:/drawable/ic_power_off.xml"
+    },
+    {
         "merged": "com.example.extensaotelas.app-debug-42:/mipmap-xhdpi_ic_launcher.webp.flat",
         "source": "com.example.extensaotelas.app-main-44:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.extensaotelas.app-debug-42:/drawable-mdpi_ic_delete.png.flat",
+        "source": "com.example.extensaotelas.app-main-44:/drawable-mdpi/ic_delete.png"
     },
     {
         "merged": "com.example.extensaotelas.app-debug-42:/drawable_humidity_air_gradient.xml.flat",
@@ -94,6 +146,10 @@
     {
         "merged": "com.example.extensaotelas.app-debug-42:/mipmap-xhdpi_ic_launcher_round.webp.flat",
         "source": "com.example.extensaotelas.app-main-44:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.extensaotelas.app-debug-42:/drawable-xhdpi_ic_delete.png.flat",
+        "source": "com.example.extensaotelas.app-main-44:/drawable-xhdpi/ic_delete.png"
     },
     {
         "merged": "com.example.extensaotelas.app-debug-42:/layout_activity_main.xml.flat",

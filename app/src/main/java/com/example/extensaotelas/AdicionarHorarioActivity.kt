@@ -79,10 +79,10 @@ class AdicionarHorarioActivity : AppCompatActivity() {
                         return@launch // Sai da corrotina
                     }
 
-                    // Se chegámos aqui, estamos conectados. Procede com a lógica de salvar.
+                    // Estamos conectados. Procede com a lógica de salvar.
                     progressDialog.setMessage("A enviar agendamento...")
 
-                    // Validações (já as tinha, mantemos)
+                    // Validações
                     if (horaInicial !in 0..23 || horaFinal !in 0..23) {
                         Toast.makeText(this@AdicionarHorarioActivity, "Horário inválido", Toast.LENGTH_SHORT).show()
                         return@launch
@@ -100,7 +100,7 @@ class AdicionarHorarioActivity : AppCompatActivity() {
                         return@launch
                     }
 
-                    // Lógica de envio (já a tinha, mantemos)
+                    // Lógica de envio
                     val schedules = viewModel.schedules.value
                     val usedIndexes = schedules.map { it.index }.toSet()
                     var nextIndex = 0
