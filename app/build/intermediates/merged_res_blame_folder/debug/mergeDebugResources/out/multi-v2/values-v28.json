@@ -4,7 +4,7 @@
             "outputFile": "com.example.extensaotelas.app-mergeDebugResources-40:/values-v28/values-v28.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\2406499\\.gradle\\caches\\8.11.1\\transforms\\232b2faee7d7006ff761b0f5d7153da4\\transformed\\material-1.12.0\\res\\values-v28\\values-v28.xml",
+                    "source": "C:\\Users\\2406499\\.gradle\\caches\\8.13\\transforms\\dd6617aeffd6675d8a556eb38a25e283\\transformed\\material-1.12.0\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\2406499\\.gradle\\caches\\8.11.1\\transforms\\acfb186c430ae63a450360a2e804f432\\transformed\\appcompat-1.7.1\\res\\values-v28\\values-v28.xml",
+                    "source": "C:\\Users\\2406499\\.gradle\\caches\\8.13\\transforms\\fb94eb6d3963147998d8158a65ffe08d\\transformed\\appcompat-1.7.1\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,8",
                         "startColumns": "4,4,4,4",

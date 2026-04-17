@@ -1,6 +1,6 @@
-com.example.extensaotelas.test.app-tracing-1.2.0-0 C:\Users\2406499\.gradle\caches\8.11.1\transforms\1593b80071efe09e432c52c885314785\transformed\tracing-1.2.0\res
-com.example.extensaotelas.test.app-core-1.6.1-1 C:\Users\2406499\.gradle\caches\8.11.1\transforms\eecc8c558702f06a8fbe20ab1fa2ccb1\transformed\core-1.6.1\res
-com.example.extensaotelas.test.app-androidTest-2 D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\generated\res\resValues\androidTest\debug
-com.example.extensaotelas.test.app-mergeDebugAndroidTestResources-3 D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
-com.example.extensaotelas.test.app-mergeDebugAndroidTestResources-4 D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
-com.example.extensaotelas.test.app-debugAndroidTest-5 D:\Downloads\Versao1.1-Design-2-main\Versao1.1-Design-2-main\Versao1.1\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources
+com.example.extensaotelas.test.app-core-1.6.1-0 C:\Users\2406499\.gradle\caches\8.13\transforms\9e23745a14244a96ec4faeaa2e9a908f\transformed\core-1.6.1\res
+com.example.extensaotelas.test.app-tracing-1.2.0-1 C:\Users\2406499\.gradle\caches\8.13\transforms\f096a6a93fc34d86af58c63e37315f4d\transformed\tracing-1.2.0\res
+com.example.extensaotelas.test.app-androidTest-2 C:\Users\2406499\AndroidStudioProjects\V1.2\app\build\generated\res\resValues\androidTest\debug
+com.example.extensaotelas.test.app-mergeDebugAndroidTestResources-3 C:\Users\2406499\AndroidStudioProjects\V1.2\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.example.extensaotelas.test.app-mergeDebugAndroidTestResources-4 C:\Users\2406499\AndroidStudioProjects\V1.2\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.example.extensaotelas.test.app-debugAndroidTest-5 C:\Users\2406499\AndroidStudioProjects\V1.2\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

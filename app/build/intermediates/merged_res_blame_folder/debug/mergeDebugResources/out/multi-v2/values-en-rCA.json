@@ -4,7 +4,7 @@
             "outputFile": "com.example.extensaotelas.app-mergeDebugResources-40:/values-en-rCA/values-en-rCA.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\2406499\\.gradle\\caches\\8.11.1\\transforms\\acfb186c430ae63a450360a2e804f432\\transformed\\appcompat-1.7.1\\res\\values-en-rCA\\values-en-rCA.xml",
+                    "source": "C:\\Users\\2406499\\.gradle\\caches\\8.13\\transforms\\fb94eb6d3963147998d8158a65ffe08d\\transformed\\appcompat-1.7.1\\res\\values-en-rCA\\values-en-rCA.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\2406499\\.gradle\\caches\\8.11.1\\transforms\\963451d1e661c2f48043f1dfd9d6d6f8\\transformed\\core-1.16.0\\res\\values-en-rCA\\values-en-rCA.xml",
+                    "source": "C:\\Users\\2406499\\.gradle\\caches\\8.13\\transforms\\159a31cc55fcbb8690b0340a8a11c275\\transformed\\core-1.16.0\\res\\values-en-rCA\\values-en-rCA.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

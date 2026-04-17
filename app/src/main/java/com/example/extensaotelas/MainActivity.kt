@@ -5,6 +5,8 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
+import android.bluetooth.BluetoothManager
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
@@ -22,18 +24,29 @@ import kotlinx.coroutines.isActive
 import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import androidx.activity.result.contract.ActivityResultContracts
 
 @SuppressLint("MissingPermission")
 class MainActivity : ComponentActivity() {
 
 	private val viewModel: MainViewModel by viewModels()
-	private lateinit var bluetoothAdapter: BluetoothAdapter
+	private var bluetoothAdapter: BluetoothAdapter? = null
 	private lateinit var textViewStatus: TextView
 	private lateinit var txtTemperaturaValor: TextView
 	private lateinit var txtUmidadeArValor: TextView
 	private lateinit var txtUmidadeSoloValor: TextView
 
 	private var statusPollJob: Job? = null
+
+	private val requestPermissionLauncher = registerForActivityResult(
+		ActivityResultContracts.RequestMultiplePermissions()
+	) { permissions ->
+		if (permissions.entries.all { it.value }) {
+			iniciarConexaoBluetooth()
+		} else {
+			Toast.makeText(this, "Permissões necessárias não concedidas", Toast.LENGTH_SHORT).show()
+		}
+	}
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -47,7 +60,9 @@ class MainActivity : ComponentActivity() {
 		setupUI()
 		observeViewModel()
 
-		bluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
+		// Usar BluetoothManager.adapter em vez do deprecated getDefaultAdapter()
+		val bluetoothManager = getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
+		bluetoothAdapter = bluetoothManager.adapter
 	}
 
 	private fun setupUI() {
@@ -63,10 +78,6 @@ class MainActivity : ComponentActivity() {
 			handleBluetoothConnection()
 		}
 	}
-
-	// Dentro de MainActivity.kt
-
-	// Dentro de MainActivity.kt
 
 	private fun observeViewModel() {
 		lifecycleScope.launch {
@@ -113,31 +124,64 @@ class MainActivity : ComponentActivity() {
 	}
 
 	private fun handleBluetoothConnection() {
-		if (checkPermissions()) {
-			if (!bluetoothAdapter.isEnabled) {
-				Toast.makeText(this, "Por favor, ative o Bluetooth.", Toast.LENGTH_SHORT).show()
-				return
-			}
-			val pairedDevices: Set<BluetoothDevice>? = bluetoothAdapter.bondedDevices
-			if (pairedDevices.isNullOrEmpty()) {
-				Toast.makeText(this, "Nenhum dispositivo pareado encontrado.", Toast.LENGTH_SHORT).show()
-				return
-			}
-
-			val deviceList = pairedDevices.map { it.name to it }.toTypedArray()
-			AlertDialog.Builder(this)
-				.setTitle("Escolha um dispositivo")
-				.setItems(deviceList.map { it.first }.toTypedArray()) { _, which ->
-					val device = deviceList[which].second
-					viewModel.connectToDevice(device)
-				}
-				.show()
+		if (bluetoothAdapter == null) {
+			Toast.makeText(this, "Este dispositivo não suporta Bluetooth.", Toast.LENGTH_SHORT).show()
+			return
 		}
+
+		if (!checkPermissions()) {
+			return
+		}
+
+		iniciarConexaoBluetooth()
+	}
+
+	/**
+	 * Lógica de conexão Bluetooth extraída para método separado.
+	 * Chamada após permissões serem concedidas (diretamente ou via callback).
+	 */
+	private fun iniciarConexaoBluetooth() {
+		val adapter = bluetoothAdapter ?: return
+
+		if (!adapter.isEnabled) {
+			Toast.makeText(this, "Por favor, ative o Bluetooth.", Toast.LENGTH_SHORT).show()
+			return
+		}
+
+		// Cancelar discovery antes de listar/conectar — libera recursos da antena BT
+		adapter.cancelDiscovery()
+
+		val pairedDevices: Set<BluetoothDevice>? = adapter.bondedDevices
+		if (pairedDevices.isNullOrEmpty()) {
+			Toast.makeText(this, "Nenhum dispositivo pareado encontrado.", Toast.LENGTH_SHORT).show()
+			return
+		}
+
+		val deviceList = pairedDevices.map {
+			(it.name ?: "(Sem nome)") + "\n" + it.address to it
+		}.toTypedArray()
+
+		AlertDialog.Builder(this)
+			.setTitle("Escolha um dispositivo")
+			.setItems(deviceList.map { it.first }.toTypedArray()) { _, which ->
+				val device = deviceList[which].second
+				// Garantir que o discovery está cancelado antes de conectar
+				adapter.cancelDiscovery()
+				viewModel.connectToDevice(device)
+			}
+			.show()
 	}
 
 	private fun checkPermissions(): Boolean {
-		if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-			ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.BLUETOOTH_CONNECT), 1001)
+		val requiredPermissions = mutableListOf(Manifest.permission.BLUETOOTH_CONNECT)
+
+		// BLUETOOTH_SCAN é necessário se quisermos fazer discovery no futuro
+		if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
+			requiredPermissions.add(Manifest.permission.BLUETOOTH_SCAN)
+		}
+
+		if (requiredPermissions.any { ContextCompat.checkSelfPermission(this, it) != PackageManager.PERMISSION_GRANTED }) {
+			requestPermissionLauncher.launch(requiredPermissions.toTypedArray())
 			return false
 		}
 		return true

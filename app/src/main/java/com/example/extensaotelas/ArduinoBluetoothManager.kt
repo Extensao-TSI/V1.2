@@ -63,9 +63,39 @@ class ArduinoBluetoothManager private constructor(context: Context) {
     fun connect(device: BluetoothDevice) {
         scope.launch {
             _connectionStatus.value = ConnectionStatus.CONNECTING
+
+            // Cancelar discovery se estiver ativo — consome recursos da antena BT
+            bluetoothAdapter?.cancelDiscovery()
+
             try {
+                // Tentativa 1: conexão padrão via UUID SPP
                 socket = device.createRfcommSocketToServiceRecord(sppUuid)
                 socket?.connect()
+            } catch (e: IOException) {
+                // Tentativa 2: fallback via reflexão (necessário para muitos módulos HC-05/HC-06)
+                android.util.Log.w("BT_DEBUG", "Conexão padrão falhou, tentando fallback: ${e.message}")
+                try {
+                    socket?.close()
+                } catch (_: IOException) {}
+
+                try {
+                    val method = device.javaClass.getMethod("createRfcommSocket", Int::class.javaPrimitiveType)
+                    socket = method.invoke(device, 1) as BluetoothSocket
+                    socket?.connect()
+                } catch (e2: Exception) {
+                    android.util.Log.e("BT_DEBUG", "Fallback também falhou: ${e2.message}")
+                    _connectionStatus.value = ConnectionStatus.ERROR
+                    disconnect()
+                    return@launch
+                }
+            } catch (e: Exception) {
+                android.util.Log.e("BT_DEBUG", "Erro inesperado na conexão: ${e.message}")
+                _connectionStatus.value = ConnectionStatus.ERROR
+                disconnect()
+                return@launch
+            }
+
+            try {
                 inputStream = socket?.inputStream
                 outputStream = socket?.outputStream
                 _connectionStatus.value = ConnectionStatus.CONNECTED
@@ -74,6 +104,7 @@ class ArduinoBluetoothManager private constructor(context: Context) {
 
                 startListening()
             } catch (e: Exception) {
+                android.util.Log.e("BT_DEBUG", "Erro ao obter streams: ${e.message}")
                 _connectionStatus.value = ConnectionStatus.ERROR
                 disconnect()
             }
