@@ -4,9 +4,11 @@ color black
 color dark_green_accent
 color dark_green_primary
 color dark_green_secondary
+color day_selector_text
 color deep_green
 color forest_green
 color white
+drawable bg_day_selector
 drawable gradient_background
 drawable humidity_air_gradient
 drawable humidity_soil_gradient
@@ -21,6 +23,8 @@ drawable ic_relogio
 drawable ifms
 drawable ifms2
 drawable item_gradient
+drawable logo
+drawable logo_app
 drawable temperature_gradient
 id btnAdicionarHorario
 id btnBluetooth
@@ -34,7 +38,11 @@ id btnHorarioInicial
 id btnLigarDesligar
 id btnSalvarEdicaoHorario
 id btnSalvarHorario
+id btnSobre
 id btnToggle
+id cardTemperatura
+id cardUmidadeAr
+id cardUmidadeSolo
 id cbDom
 id cbQua
 id cbQui
@@ -42,6 +50,10 @@ id cbSab
 id cbSeg
 id cbSex
 id cbTer
+id chartTemperatura
+id chartUmidadeAr
+id chartUmidadeSolo
+id fabRefresh
 id linearLayout
 id logoBackground
 id logoBackground2
@@ -50,7 +62,6 @@ id logoBackground4
 id main
 id recyclerViewHorarios
 id textView2
-id textView3
 id textViewHorario
 id textViewSemHorariosCadastrados
 id textViewTituloAdicionar
@@ -63,6 +74,7 @@ id txtTituloUmidadeSolo
 id txtUmidadeArValor
 id txtUmidadeSoloValor
 layout activity_adicionar_horario
+layout activity_charts
 layout activity_editar_horario
 layout activity_horario
 layout activity_lista_horarios

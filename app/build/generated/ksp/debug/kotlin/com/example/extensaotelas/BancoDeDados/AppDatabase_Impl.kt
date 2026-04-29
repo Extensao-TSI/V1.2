@@ -31,17 +31,23 @@ public class AppDatabase_Impl : AppDatabase() {
     HorarioDao_Impl(this)
   }
 
+  private val _sensorDataDao: Lazy<SensorDataDao> = lazy {
+    SensorDataDao_Impl(this)
+  }
+
   protected override fun createOpenDelegate(): RoomOpenDelegate {
-    val _openDelegate: RoomOpenDelegate = object : RoomOpenDelegate(2,
-        "1506e789a7de608027c5788c9e5590b8", "1e7174c6818857c65ebbd9f78d4cdcd6") {
+    val _openDelegate: RoomOpenDelegate = object : RoomOpenDelegate(3,
+        "e4f4a9282b67caae3ccacb256c9a7e2e", "c3e720ce873338688ab559758796b7d6") {
       public override fun createAllTables(connection: SQLiteConnection) {
         connection.execSQL("CREATE TABLE IF NOT EXISTS `Horario` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `ano` INTEGER NOT NULL, `mes` INTEGER NOT NULL, `dia` INTEGER NOT NULL, `horaInicial` INTEGER NOT NULL, `minutosInicial` INTEGER NOT NULL, `horaFinal` INTEGER NOT NULL, `minutosFinal` INTEGER NOT NULL, `ativo` INTEGER NOT NULL)")
+        connection.execSQL("CREATE TABLE IF NOT EXISTS `sensor_data` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `timestamp` INTEGER NOT NULL, `temperature` REAL NOT NULL, `airHumidity` REAL NOT NULL, `soilHumidity` INTEGER NOT NULL)")
         connection.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)")
-        connection.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1506e789a7de608027c5788c9e5590b8')")
+        connection.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e4f4a9282b67caae3ccacb256c9a7e2e')")
       }
 
       public override fun dropAllTables(connection: SQLiteConnection) {
         connection.execSQL("DROP TABLE IF EXISTS `Horario`")
+        connection.execSQL("DROP TABLE IF EXISTS `sensor_data`")
       }
 
       public override fun onCreate(connection: SQLiteConnection) {
@@ -93,6 +99,31 @@ public class AppDatabase_Impl : AppDatabase() {
               | Found:
               |""".trimMargin() + _existingHorario)
         }
+        val _columnsSensorData: MutableMap<String, TableInfo.Column> = mutableMapOf()
+        _columnsSensorData.put("id", TableInfo.Column("id", "INTEGER", true, 1, null,
+            TableInfo.CREATED_FROM_ENTITY))
+        _columnsSensorData.put("timestamp", TableInfo.Column("timestamp", "INTEGER", true, 0, null,
+            TableInfo.CREATED_FROM_ENTITY))
+        _columnsSensorData.put("temperature", TableInfo.Column("temperature", "REAL", true, 0, null,
+            TableInfo.CREATED_FROM_ENTITY))
+        _columnsSensorData.put("airHumidity", TableInfo.Column("airHumidity", "REAL", true, 0, null,
+            TableInfo.CREATED_FROM_ENTITY))
+        _columnsSensorData.put("soilHumidity", TableInfo.Column("soilHumidity", "INTEGER", true, 0,
+            null, TableInfo.CREATED_FROM_ENTITY))
+        val _foreignKeysSensorData: MutableSet<TableInfo.ForeignKey> = mutableSetOf()
+        val _indicesSensorData: MutableSet<TableInfo.Index> = mutableSetOf()
+        val _infoSensorData: TableInfo = TableInfo("sensor_data", _columnsSensorData,
+            _foreignKeysSensorData, _indicesSensorData)
+        val _existingSensorData: TableInfo = read(connection, "sensor_data")
+        if (!_infoSensorData.equals(_existingSensorData)) {
+          return RoomOpenDelegate.ValidationResult(false, """
+              |sensor_data(com.example.extensaotelas.BancoDeDados.SensorDataEntity).
+              | Expected:
+              |""".trimMargin() + _infoSensorData + """
+              |
+              | Found:
+              |""".trimMargin() + _existingSensorData)
+        }
         return RoomOpenDelegate.ValidationResult(true, null)
       }
     }
@@ -102,16 +133,17 @@ public class AppDatabase_Impl : AppDatabase() {
   protected override fun createInvalidationTracker(): InvalidationTracker {
     val _shadowTablesMap: MutableMap<String, String> = mutableMapOf()
     val _viewTables: MutableMap<String, Set<String>> = mutableMapOf()
-    return InvalidationTracker(this, _shadowTablesMap, _viewTables, "Horario")
+    return InvalidationTracker(this, _shadowTablesMap, _viewTables, "Horario", "sensor_data")
   }
 
   public override fun clearAllTables() {
-    super.performClear(false, "Horario")
+    super.performClear(false, "Horario", "sensor_data")
   }
 
   protected override fun getRequiredTypeConverterClasses(): Map<KClass<*>, List<KClass<*>>> {
     val _typeConvertersMap: MutableMap<KClass<*>, List<KClass<*>>> = mutableMapOf()
     _typeConvertersMap.put(HorarioDao::class, HorarioDao_Impl.getRequiredConverters())
+    _typeConvertersMap.put(SensorDataDao::class, SensorDataDao_Impl.getRequiredConverters())
     return _typeConvertersMap
   }
 
@@ -128,4 +160,6 @@ public class AppDatabase_Impl : AppDatabase() {
   }
 
   public override fun horarioDao(): HorarioDao = _horarioDao.value
+
+  public override fun sensorDataDao(): SensorDataDao = _sensorDataDao.value
 }

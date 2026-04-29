@@ -7,7 +7,7 @@
     <color name="deep_green">#082E22</color>
     <color name="forest_green">#0C2822</color>
     <color name="white">#FFFFFFFF</color>
-    <string name="app_name">ExtensaoTelas</string>
+    <string name="app_name">TYKY</string>
     <string name="sobre"><u>Sobre-nos</u></string>
     <style name="AppButtonDanger" parent="Widget.Material3.Button">
 		<item name="android:textAllCaps">true</item>
@@ -26,6 +26,7 @@
 		<item name="android:textStyle">bold</item>
 		<item name="android:textColor">#FFFFFF</item>
 		<item name="android:textSize">18sp</item>
+		<item name="android:text">Desligar</item>
 		<item name="backgroundTint">#FF0000</item>
 		<item name="cornerRadius">14dp</item>
 		<item name="strokeColor">@color/black</item>
@@ -38,6 +39,7 @@
 		<item name="android:textStyle">bold</item>
 		<item name="android:textColor">#FFFFFF</item>
 		<item name="android:textSize">18sp</item>
+		<item name="android:text">Ligar</item>
 		<item name="backgroundTint">#008000</item>
 		<item name="cornerRadius">14dp</item>
 		<item name="strokeColor">#000000</item>
@@ -86,18 +88,17 @@
     <style name="Days">
 		<item name="android:textAllCaps">true</item>
 		<item name="android:textStyle">bold</item>
-		<item name="android:textColor">#0D47A1</item>
+		<item name="android:textColor">@color/day_selector_text</item>
 		<item name="android:textSize">15sp</item>
-		<item name="buttonTint">#0D47A1</item>
-		<item name="cornerRadius">5dp</item>
-		<item name="strokeColor">@color/black</item>
-		<item name="strokeWidth">1dp</item>
-		<item name="rippleColor">#201565C0</item>
-		<item name="iconTint">#0D47A1</item>
-		<item name="android:shadowColor">#201565C0</item>
-		<item name="android:shadowDx">2</item>
-		<item name="android:shadowDy">2</item>
-		<item name="android:shadowRadius">4</item>
+		<item name="android:gravity">center</item>
+		<item name="android:button">@null</item>
+		<item name="android:background">@drawable/bg_day_selector</item>
+		<item name="android:minWidth">44dp</item>
+		<item name="android:minHeight">44dp</item>
+		<item name="android:paddingStart">0dp</item>
+		<item name="android:paddingEnd">0dp</item>
+		<item name="android:paddingTop">0dp</item>
+		<item name="android:paddingBottom">0dp</item>
 	</style>
     <style name="Theme.ExtensaoTelas" parent="Base.Theme.ExtensaoTelas"/>
 </resources>

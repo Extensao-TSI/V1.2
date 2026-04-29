@@ -53,6 +53,16 @@ class MainActivity : ComponentActivity() {
 	}
 
 	private fun setupUI() {
+		findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardTemperatura).setOnClickListener {
+			startActivity(Intent(this, ChartsActivity::class.java))
+		}
+		findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardUmidadeAr).setOnClickListener {
+			startActivity(Intent(this, ChartsActivity::class.java))
+		}
+		findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardUmidadeSolo).setOnClickListener {
+			startActivity(Intent(this, ChartsActivity::class.java))
+		}
+
 		findViewById<MaterialButton>(R.id.btnGerenciarHorario).setOnClickListener {
 			if (viewModel.connectionStatus.value == ConnectionStatus.CONNECTED) {
 				startActivity(Intent(this, ListaHorariosActivity::class.java))
@@ -97,6 +107,10 @@ class MainActivity : ComponentActivity() {
 						textViewStatus.setTextColor(Color.GREEN)
 						Toast.makeText(this@MainActivity, "Conectado. Sincronizando horário...", Toast.LENGTH_SHORT).show()
 						viewModel.syncRtc()
+						findViewById<MaterialButton>(R.id.btnBluetooth).apply {
+							isEnabled = true // Permitir desconectar se quiser, ou manter false se preferir forçar manual
+							text = "DESCONECTAR"
+						}
 
 						// O Arduino já envia os dados automaticamente, não precisamos de os pedir.
 						statusPollJob?.cancel()
@@ -104,15 +118,36 @@ class MainActivity : ComponentActivity() {
 					ConnectionStatus.DISCONNECTED -> {
 						textViewStatus.text = "Desconectado"
 						textViewStatus.setTextColor(Color.RED)
+						findViewById<MaterialButton>(R.id.btnBluetooth).apply {
+							isEnabled = true
+							text = "CONECTAR DISPOSITIVOS"
+						}
 						statusPollJob?.cancel()
 					}
 					ConnectionStatus.CONNECTING -> {
 						textViewStatus.text = "Conectando..."
 						textViewStatus.setTextColor(Color.BLUE)
+						findViewById<MaterialButton>(R.id.btnBluetooth).apply {
+							isEnabled = false
+							text = "CONECTANDO..."
+						}
 					}
 					ConnectionStatus.ERROR -> {
 						textViewStatus.text = "Erro na conexão"
 						textViewStatus.setTextColor(Color.RED)
+						findViewById<MaterialButton>(R.id.btnBluetooth).apply {
+							isEnabled = true
+							text = "TENTAR NOVAMENTE"
+						}
+					}
+					ConnectionStatus.RECONNECT_FAILED -> {
+						textViewStatus.text = "Falha ao reconectar"
+						textViewStatus.setTextColor(Color.RED)
+						Toast.makeText(this@MainActivity, "Não foi possível reconectar. Tente manualmente.", Toast.LENGTH_LONG).show()
+						findViewById<MaterialButton>(R.id.btnBluetooth).apply {
+							isEnabled = true
+							text = "CONECTAR MANUALMENTE"
+						}
 					}
 				}
 			}
@@ -130,6 +165,11 @@ class MainActivity : ComponentActivity() {
 	}
 
 	private fun handleBluetoothConnection() {
+		if (viewModel.connectionStatus.value == ConnectionStatus.CONNECTED) {
+			viewModel.disconnect()
+			return
+		}
+
 		if (checkPermissions()) {
 			if (!bluetoothAdapter.isEnabled) {
 				Toast.makeText(this, "Por favor, ative o Bluetooth.", Toast.LENGTH_SHORT).show()

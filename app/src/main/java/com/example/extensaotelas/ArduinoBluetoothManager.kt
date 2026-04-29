@@ -13,6 +13,9 @@ import java.io.IOException
 import java.io.InputStream
 import java.io.OutputStream
 import java.util.*
+import com.example.extensaotelas.BancoDeDados.AppDatabase
+import com.example.extensaotelas.BancoDeDados.SensorDataDao
+import com.example.extensaotelas.BancoDeDados.SensorDataEntity
 
 @SuppressLint("MissingPermission")
 class ArduinoBluetoothManager private constructor(context: Context) {
@@ -40,8 +43,11 @@ class ArduinoBluetoothManager private constructor(context: Context) {
     private var inputStream: InputStream? = null
     private var outputStream: OutputStream? = null
 
+    private val sensorDataDao: SensorDataDao = AppDatabase.getDatabase(context).sensorDataDao()
+
     private val scope = CoroutineScope(Dispatchers.IO + SupervisorJob())
     private var listenJob: Job? = null
+    private var reconnectJob: Job? = null
 
     private val _sensorData = MutableStateFlow<SensorData?>(null)
     val sensorData = _sensorData.asStateFlow()
@@ -59,9 +65,12 @@ class ArduinoBluetoothManager private constructor(context: Context) {
     private val sppUuid: UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB")
 
     private var lastConnectedDevice: BluetoothDevice? = null
+    private var isManuallyDisconnected = false
 
     fun connect(device: BluetoothDevice) {
         scope.launch {
+            isManuallyDisconnected = false
+            reconnectJob?.cancel() // Cancela tentativas anteriores de reconexão
             _connectionStatus.value = ConnectionStatus.CONNECTING
             try {
                 socket = device.createRfcommSocketToServiceRecord(sppUuid)
@@ -73,9 +82,14 @@ class ArduinoBluetoothManager private constructor(context: Context) {
                 lastConnectedDevice = device // Guarda o dispositivo após conectar com sucesso
 
                 startListening()
+                
+                // Handshake com o Arduino
+                val maxTimestamp = sensorDataDao.getMaxTimestamp() ?: 0L
+                sendCommand("H:$maxTimestamp")
+
             } catch (e: Exception) {
                 _connectionStatus.value = ConnectionStatus.ERROR
-                disconnect()
+                disconnect(false) // Desconecta sem resetar o status para manter o ERROR
             }
         }
     }
@@ -85,7 +99,35 @@ class ArduinoBluetoothManager private constructor(context: Context) {
         lastConnectedDevice?.let { device ->
             // Só tenta reconectar se a conexão não estiver já ativa ou em processo
             if (_connectionStatus.value != ConnectionStatus.CONNECTED && _connectionStatus.value != ConnectionStatus.CONNECTING) {
-                connect(device)
+                reconnectJob?.cancel()
+                reconnectJob = scope.launch {
+                    val startTime = System.currentTimeMillis()
+                    val timeout = 30 * 1000L // 30 segundos
+                    
+                    while (System.currentTimeMillis() - startTime < timeout) {
+                        _connectionStatus.value = ConnectionStatus.CONNECTING
+                        try {
+                            socket = device.createRfcommSocketToServiceRecord(sppUuid)
+                            socket?.connect()
+                            inputStream = socket?.inputStream
+                            outputStream = socket?.outputStream
+                            _connectionStatus.value = ConnectionStatus.CONNECTED
+                            
+                            startListening()
+                            
+                            val maxTimestamp = sensorDataDao.getMaxTimestamp() ?: 0L
+                            sendCommand("H:$maxTimestamp")
+                            return@launch // Sucesso na reconexão
+                        } catch (e: Exception) {
+                            // Falhou a tentativa, espera 5 segundos antes de tentar novamente
+                            delay(5000)
+                        }
+                    }
+                    
+                    // Se saiu do loop, falhou após 30 segundos
+                    _connectionStatus.value = ConnectionStatus.RECONNECT_FAILED
+                    disconnect(false)
+                }
             }
         }
     }
@@ -106,13 +148,13 @@ class ArduinoBluetoothManager private constructor(context: Context) {
                     } else {
                         // Se a linha for nula, a conexão provavelmente foi perdida
                         android.util.Log.w("BT_DEBUG", "readLine() retornou nulo. A conexão pode ter sido fechada.")
-                        _connectionStatus.value = ConnectionStatus.DISCONNECTED
+                        handleDisconnection()
                         break
                     }
                 } catch (e: IOException) {
                     // Erro de conexão, como o dispositivo a ser desligado
                     android.util.Log.e("BT_DEBUG", "IOException no startListening: ${e.message}")
-                    _connectionStatus.value = ConnectionStatus.DISCONNECTED
+                    handleDisconnection()
                     break
                 } catch (e: Exception) {
                     // --- CAPTURA QUALQUER OUTRO ERRO ---
@@ -121,6 +163,13 @@ class ArduinoBluetoothManager private constructor(context: Context) {
                     // Continua a ouvir, ignorando a linha que causou o problema
                 }
             }
+        }
+    }
+
+    private fun handleDisconnection() {
+        _connectionStatus.value = ConnectionStatus.DISCONNECTED
+        if (!isManuallyDisconnected) {
+            reconnect() // Tenta reconectar automaticamente apenas se não for manual
         }
     }
 
@@ -139,6 +188,28 @@ class ArduinoBluetoothManager private constructor(context: Context) {
                     try {
                         _sensorData.value = SensorData(data[0].toFloat(), data[1].toFloat(), data[2].toInt())
                     } catch (e: NumberFormatException) {}
+                }
+            }
+            "SD_DATA" -> { // Formato esperado: SD_DATA:timestamp,temp,umidAr,umidSolo
+                if (data.size == 4) {
+                    try {
+                        val timestamp = data[0].toLong()
+                        val temp = data[1].toFloat()
+                        val umidAr = data[2].toFloat()
+                        val umidSolo = data[3].toInt()
+                        
+                        val entity = SensorDataEntity(
+                            timestamp = timestamp,
+                            temperature = temp,
+                            airHumidity = umidAr,
+                            soilHumidity = umidSolo
+                        )
+                        scope.launch {
+                            sensorDataDao.insert(entity)
+                        }
+                    } catch (e: Exception) {
+                        android.util.Log.e("BT_DEBUG", "Erro ao processar dados de SYNC: ${e.message}")
+                    }
                 }
             }
             "OK" -> {
@@ -221,9 +292,11 @@ class ArduinoBluetoothManager private constructor(context: Context) {
         }
     }
 
-    fun disconnect() {
+    fun disconnect(resetStatus: Boolean = true) {
+        if (resetStatus) isManuallyDisconnected = true
         try {
             listenJob?.cancel()
+            reconnectJob?.cancel()
             socket?.close()
         } catch (e: Exception) { /* Ignore */ }
         
@@ -231,7 +304,9 @@ class ArduinoBluetoothManager private constructor(context: Context) {
         inputStream = null
         outputStream = null
         
-        _connectionStatus.value = ConnectionStatus.DISCONNECTED
+        if (resetStatus) {
+            _connectionStatus.value = ConnectionStatus.DISCONNECTED
+        }
     }
 
     fun requestScheduleList() {
@@ -271,7 +346,7 @@ class ArduinoBluetoothManager private constructor(context: Context) {
     }
 
     fun activeManualMode(){
-        sendCommand("M")
+        sendCommand("M:1")
     }
     fun disableManualMode(){
         sendCommand("A")

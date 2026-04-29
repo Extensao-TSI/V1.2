@@ -19,5 +19,5 @@ data class Schedule(
 
 // Representa o status da conexão Bluetooth
 enum class ConnectionStatus {
-    DISCONNECTED, CONNECTING, CONNECTED, ERROR
+    DISCONNECTED, CONNECTING, CONNECTED, ERROR, RECONNECT_FAILED
 }

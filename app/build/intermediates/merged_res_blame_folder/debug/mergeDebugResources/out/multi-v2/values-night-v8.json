@@ -4,14 +4,14 @@
             "outputFile": "com.example.extensaotelas.app-mergeDebugResources-40:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "D:\\Downloads\\Versao1.1-Design-2-main\\Versao1.1-Design-2-main\\Versao1.1\\app\\src\\main\\res\\values-night\\themes.xml",
+                    "source": "C:\\Users\\2406499\\AndroidStudioProjects\\V1.2\\app\\src\\main\\res\\values-night\\themes.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
-                        "startOffsets": "100",
+                        "startOffsets": "102",
                         "endLines": "15",
                         "endColumns": "12",
-                        "endOffsets": "847"
+                        "endOffsets": "862"
                     },
                     "to": {
                         "startLines": "2",
