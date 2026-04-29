@@ -45,20 +45,6 @@ class ListaHorariosActivity : ComponentActivity() {
         observeManualMode()
     }
 
-    private fun observeManualMode() {
-        lifecycleScope.launch {
-            viewModel.isManualModeActive.collectLatest { isActive ->
-                if (isActive) {
-                    btnLigaDesliga.text = "DESLIGAR"
-                    btnLigaDesliga.backgroundTintList = android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#FF0000"))
-                } else {
-                    btnLigaDesliga.text = "LIGAR"
-                    btnLigaDesliga.backgroundTintList = android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#008000"))
-                }
-            }
-        }
-    }
-
     override fun onResume() {
         super.onResume()
         // Pede a lista de horários ao Arduino sempre que a tela se torna visível
@@ -98,6 +84,20 @@ class ListaHorariosActivity : ComponentActivity() {
                 scheduleList.clear()
                 scheduleList.addAll(schedules)
                 adapter.notifyDataSetChanged()
+            }
+        }
+    }
+
+    private fun observeManualMode() {
+        lifecycleScope.launch {
+            viewModel.isManualModeActive.collectLatest { isActive ->
+                if (isActive) {
+                    btnLigaDesliga.text = "Desligar"
+                    btnLigaDesliga.backgroundTintList = android.content.res.ColorStateList.valueOf(android.graphics.Color.RED)
+                } else {
+                    btnLigaDesliga.text = "Ligar"
+                    btnLigaDesliga.backgroundTintList = android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#008000"))
+                }
             }
         }
     }

@@ -40,6 +40,9 @@ id btnSalvarEdicaoHorario
 id btnSalvarHorario
 id btnSobre
 id btnToggle
+id cardTemperatura
+id cardUmidadeAr
+id cardUmidadeSolo
 id cbDom
 id cbQua
 id cbQui
@@ -47,6 +50,10 @@ id cbSab
 id cbSeg
 id cbSex
 id cbTer
+id chartTemperatura
+id chartUmidadeAr
+id chartUmidadeSolo
+id fabRefresh
 id linearLayout
 id logoBackground
 id logoBackground2
@@ -67,6 +74,7 @@ id txtTituloUmidadeSolo
 id txtUmidadeArValor
 id txtUmidadeSoloValor
 layout activity_adicionar_horario
+layout activity_charts
 layout activity_editar_horario
 layout activity_horario
 layout activity_lista_horarios

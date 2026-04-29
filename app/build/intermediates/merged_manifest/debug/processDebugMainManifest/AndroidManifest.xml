@@ -32,6 +32,9 @@
         android:roundIcon="@drawable/logo_app"
         android:supportsRtl="true"
         android:theme="@style/Theme.ExtensaoTelas" >
+        <activity
+            android:name="com.example.extensaotelas.ChartsActivity"
+            android:exported="false" />
         <activity android:name="com.example.extensaotelas.EditarHorarioActivity" />
         <activity
             android:name="com.example.extensaotelas.ListaHorariosActivity"

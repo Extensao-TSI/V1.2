@@ -3250,6 +3250,9 @@ id buttonPanel
 id cache_measures
 id callMeasure
 id cancel_button
+id cardTemperatura
+id cardUmidadeAr
+id cardUmidadeSolo
 id carryVelocity
 id cbDom
 id cbQua
@@ -3266,6 +3269,9 @@ id center_vertical
 id chain
 id chain2
 id chains
+id chartTemperatura
+id chartUmidadeAr
+id chartUmidadeSolo
 id checkbox
 id checked
 id chronometer
@@ -3338,6 +3344,7 @@ id escape
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id fabRefresh
 id fade
 id fill
 id fill_horizontal
@@ -3794,6 +3801,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_adicionar_horario
+layout activity_charts
 layout activity_editar_horario
 layout activity_horario
 layout activity_lista_horarios
